@@ -19,7 +19,7 @@ let number: number = 15;
 // 9 * 15 = 135
 // 10 * 15 = 150
 
-for (let i = 1, result = 0; i < 11; i++) {
+for (let i: number = 1, result: number = 0; i < 11; i++) {
   result = i * number;
   console.log(i, '*', number, '=', result);
 }
