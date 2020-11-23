@@ -1,3 +1,5 @@
+'use strict';
+
 // - Create a variable named `firstList`
 //   with the following content: `[1, 2, 3]`
 // - Create a variable named `secondList`
