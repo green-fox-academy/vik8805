@@ -17,7 +17,7 @@ let hashmap = {
   3: 'say goodbye '
 };
 
-for (let i = 0; i < notSoCrypticMessage.length; i++) {
+for (let i: number = 0; i < notSoCrypticMessage.length; i++) {
   out += hashmap[notSoCrypticMessage[i]];
 }
 
