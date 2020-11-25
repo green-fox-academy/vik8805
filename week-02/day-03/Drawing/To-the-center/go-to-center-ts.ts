@@ -12,13 +12,27 @@ export {};
 // Draw at least 3 lines with that function using a loop.
 
 function goToCenter(x: number, y: number) {
-  ctx.beginPath();
-  ctx.moveTo(x, y);
-  ctx.lineTo(canvas.width / 2, canvas.height / 2);
-  ctx.stroke();
+  if (x <= canvas.width && y <= canvas.height) {
+    if (x >= canvas.width / 2) {
+      for (let i: number = 0; i < 3; i++) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(canvas.width / 2, canvas.height / 2);
+        ctx.stroke();
+        x -= canvas.width / 6;
+      };
+    } else {
+      for (let i: number = 0; i < 3; i++) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(canvas.width / 2, canvas.height / 2);
+        ctx.stroke();
+        x += canvas.width / 6;
+      };
+    };
+  } else {
+    alert(`You can't give bigger numbers to x than ${canvas.width} and to y than ${canvas.height}`);
+  };
 };
 
-for (let i: number = 0, x: number = 0, y: number = 0; i < 3; i++) {
-  x += canvas.width / 4;
-  goToCenter(x, y);  
-};
+goToCenter(600, 400);
