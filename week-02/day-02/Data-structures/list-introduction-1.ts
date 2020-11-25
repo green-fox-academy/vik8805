@@ -10,10 +10,10 @@ console.log(`The number of elements in the list: ${names.length}\n`);
 names.push(`William`);
 
 // Print out whether the list is empty or not
-if (names.length > 0) {
-  console.log(`The list is not empty.\n`);
-} else {
+if (!names.length) {
   console.log(`The list is empty.\n`);
+} else {
+  console.log(`The list is not empty.\n`);
 };
 
 // Add John to the list
