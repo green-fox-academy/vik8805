@@ -28,12 +28,14 @@ function drawDiagonal(startHorizontal: number, startVertical: number) {
     ctx.lineTo(0, 0);
     ctx.strokeStyle = 'red';
     ctx.stroke();
-  } else {
+  } else if (startHorizontal === canvas.width && startVertical === 0) {
     ctx.beginPath();
     ctx.moveTo(canvas.width, 0);
     ctx.lineTo(0, canvas.height);
     ctx.strokeStyle = 'red';
     ctx.stroke();
+  } else {
+    alert(`You can add only the corner positions of the canvas, to draw a diagonal. For the starting horizontal position you can add 0, or ${canvas.width} and for the starting vertical position, you can add 0, or ${canvas.height}.`);
   };
 };
 
