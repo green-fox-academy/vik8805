@@ -9,4 +9,4 @@ export {};
 // Draw a green 10x10 square to the center of the canvas.
 
 ctx.strokeStyle = 'green';
-ctx.strokeRect(canvas.width / 2, canvas.height / 2, 10, 10);
+ctx.strokeRect((canvas.width - 10) / 2, (canvas.height - 10) / 2, 10, 10);
