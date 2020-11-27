@@ -10,7 +10,7 @@ export {};
 // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r4.png]
 
 function drawPurpleSteps3d(start: number, size: number) {
-  for (let i = 0; i < 6; i++) {
+  for (let i: number = 0; i < 6; i++) {
     ctx.strokeRect(start, start, size, size);
     ctx.fillStyle = '#b04ef0';
     ctx.fillRect(start + 1, start + 1, size - 2, size - 2);

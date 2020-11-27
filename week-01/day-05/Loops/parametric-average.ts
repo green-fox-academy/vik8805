@@ -14,8 +14,8 @@ for (let i: number = 0, j: number = givenNumber + 1; i < j; i++) {
     average += i;
   } else if (i = givenNumber) {
     average = (average + i) / givenNumber;
-  }
-}
+  };
+};
+
 console.log('Sum:', sum);
 console.log('Average:', average);
-

@@ -5,10 +5,5 @@
 // -  Swap the first and the third element of `names`
 
 let names: string[] = ["Arthur", "Boe", "Chloe"];
-console.log(names);
 
 [names[0], names[2]] = [names[2], names[0]];
-console.log(names);
-
-
-

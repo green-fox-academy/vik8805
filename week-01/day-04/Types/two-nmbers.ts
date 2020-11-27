@@ -14,8 +14,9 @@
 
 let i: number = 22;
 let j: number = 13;
+
 console.log('22 + 13 =', j + i);
 console.log('22 - 13 =', i - j);
 console.log('22 * 13 =', i * j);
 console.log('22 / 13 =', i / j);
-console.log('22 % 13 =',i % j);
+console.log('22 % 13 =', i % j);

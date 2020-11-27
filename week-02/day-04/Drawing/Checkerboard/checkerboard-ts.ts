@@ -13,8 +13,8 @@ function drawSquare(startX: number, startY: number, color: string) {
   ctx.fillRect(startX, startY, canvas.width / 8, canvas.height / 8)
 };
 
-for (let i = 0, startI: number = 0; i < 8; i++) {
-  for (let j = 0, startJ: number = 0; j < 8; j++) {
+for (let i: number = 0, startI: number = 0; i < 8; i++) {
+  for (let j: number = 0, startJ: number = 0; j < 8; j++) {
     if (j % 2 === i % 2) {
       drawSquare(startJ, startI, 'black');
     } else {

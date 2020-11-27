@@ -16,7 +16,7 @@ function drawRandomSquare(x: number) {
   ctx.strokeRect((canvas.width - x) / 2, (canvas.height - x) / 2, x, x);
 };
 
-for (let i = 0, squareSize: number = 80; i < 3; i++) {
+for (let i: number = 0, squareSize: number = 80; i < 3; i++) {
   drawRandomSquare(squareSize);
   squareSize += 50;
 };

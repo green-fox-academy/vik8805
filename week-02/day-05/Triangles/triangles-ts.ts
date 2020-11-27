@@ -17,8 +17,8 @@ function drawLTriangle(startX: number, startY: number, sideSize: number) {
 
 let side: number = canvas.width / 21;
 
-for (let h = 0; h < 21; h++) {
-  for (let i = 0; i < 21 - h; i++) {
+for (let h: number = 0; h < 21; h++) {
+  for (let i: number = 0; i < 21 - h; i++) {
     drawLTriangle(side / 2 * h + side * i, canvas.height - (0.5 * Math.sqrt(3) * side) * h, side);
   };
 };

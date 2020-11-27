@@ -5,4 +5,4 @@
 
 for (let i: number = 0, j: number = 1; i < 100; i++, j++) {
   console.log(j, 'I won\'t cheat on the exam!');
-}
+};

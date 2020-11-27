@@ -3,12 +3,12 @@
 // -  Create a function called `factorio`
 //    that returns it's input's factorial
 
-function factorio(inputNumb: number): number {
-  let factorialOfNumb: number = 1;
-  for (let i = inputNumb; i > 1; i--) {
-    factorialOfNumb *= i;
-  }
-  return factorialOfNumb;
-}
+function factorio(inputNumber: number): number {
+  let factorialOfNumber: number = 1;
+  for (let i: number = inputNumber; i > 1; i--) {
+    factorialOfNumber *= i;
+  };
+  return factorialOfNumber;
+};
 
 console.log(factorio(5));

@@ -18,8 +18,8 @@ function squareDrawing(squareSize: number, squareColor: string) {
 
 let colors: string[] = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
-for (let j = 0; j < canvas.width; j += 7) {
-  for (let i = 0; i < colors.length; i++) {
+for (let j: number = 0; j < canvas.width; j += 7) {
+  for (let i: number = 0; i < colors.length; i++) {
     squareDrawing(j + i, colors[i]);
   };
 };

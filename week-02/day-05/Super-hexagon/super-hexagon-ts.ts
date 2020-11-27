@@ -20,8 +20,8 @@ function drawHexagon(startX: number, startY: number, sideSize: number) {
 
 let side: number = 21;
 
-for (let h = 0; h < 4; h++) {
-  for (let i = 0; i < 4 + h; i++) {
+for (let h: number = 0; h < 4; h++) {
+  for (let i: number = 0; i < 4 + h; i++) {
     drawHexagon(canvas.width / 2 - side + (side * 1.5) * i - (side * 1.5) * h, canvas.height - (0.5 * Math.sqrt(3) * side) - (0.5 * Math.sqrt(3) * side) * i - (0.5 * Math.sqrt(3) * side) * h, side);
     drawHexagon(canvas.width / 2 - side - (side * 1.5) * i + (side * 1.5) * h, canvas.height - (0.5 * Math.sqrt(3) * side) * 13 + (0.5 * Math.sqrt(3) * side) * i + (0.5 * Math.sqrt(3) * side) * h, side);
   };

@@ -7,9 +7,8 @@
 
 let typo: string = 'Chinchill';
 
-function appendAFunc(inputStr: string): string {
-  let plusnAnA: string = inputStr + 'a';
-  return plusnAnA;
-}
+function appendAFunc(inputString: string): string {
+  return inputString += 'a';
+};
 
 console.log(appendAFunc(typo));

@@ -2,12 +2,11 @@
 
 // Write a function called `sum` that returns the sum of numbers from zero to the given parameter
 
-function sum(givenNumb: number): number {
-  let sumOfNumb: number = 0;
-  for (let i = 0; i <= givenNumb; i++) {
-    sumOfNumb += i;
-  }
-  return sumOfNumb;
-}
+function sum(givenNumber: number): number {
+  for (let i: number = givenNumber - 1; i > 0; i--) {
+    givenNumber += i;
+  };
+  return givenNumber;
+};
 
-console.log(sum(10));
+console.log(sum(21));

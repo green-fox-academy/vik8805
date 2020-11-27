@@ -14,5 +14,5 @@ for (let i: number = 0, j: number = 1; i < 100; i++, j++) {
     console.log('Buzz');
   } else {
     console.log(j);
-  }
-}
+  };
+};

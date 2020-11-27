@@ -18,14 +18,14 @@ for (let i: number = 0, str: string = ''; i < lineCount; i++) {
   if (i === 0 || i === lineCount - 1) {
     for (let j: number = 0; j < lineCount; j++) {
       str += '%';
-    }
+    };
     console.log(str);
   } else {
     str += '%';
     for (let k: number = 0; k < lineCount - 2; k++) {
       str += ' ';
-    }
+    };
     str += '%';
     console.log(str);
-  }
-}
+  };
+};

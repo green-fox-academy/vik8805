@@ -12,28 +12,28 @@ export {};
 function fourRect(x: number, y: number) {
   let colors: string[] = ['red', 'blue', 'green', 'yellow'];
   if (x >= canvas.width / 2 && y >= canvas.height / 2) {
-    for (let i = 0; i < 4; i++) {
+    for (let i: number = 0; i < 4; i++) {
       ctx.strokeStyle = colors[i];
       ctx.strokeRect((canvas.width - x) / 2, (canvas.height - y) / 2, x, y);
       x -= canvas.width / 8;
       y -= canvas.height / 8;
     };      
   } else if (x < canvas.width / 2 && y < canvas.height / 2) {
-    for (let i = 0; i < 4; i++) {
+    for (let i: number = 0; i < 4; i++) {
       ctx.strokeStyle = colors[i];
       ctx.strokeRect((canvas.width - x) / 2, (canvas.height - y) / 2, x, y);
       x += canvas.width / 8;
       y += canvas.height / 8;
     };
   } else if (x > y) {
-    for (let i = 0; i < 4; i++) {
+    for (let i: number = 0; i < 4; i++) {
       ctx.strokeStyle = colors[i];
       ctx.strokeRect((canvas.width - x) / 2, (canvas.height - y) / 2, x, y);
       x -= canvas.width / 8;
       y += canvas.height / 8;
     };
   } else {
-    for (let i = 0; i < 4; i++) {
+    for (let i: number = 0; i < 4; i++) {
       ctx.strokeStyle = colors[i];
       ctx.strokeRect((canvas.width - x) / 2, (canvas.height - y) / 2, x, y);
       x += canvas.width / 8;

@@ -6,12 +6,10 @@
 // -  bonus for using the correct built in array method
 
 let numbers: number[] = [4, 5, 6, 7];
-let allNumbers: string = '';
+let elementsOfNumbers: string = '';
 
-for (let i: number = 0; i < numbers.length; i++) {
-  allNumbers += numbers[i];
-  allNumbers += ' ';
-}
+numbers.forEach(function (element: number) {
+  elementsOfNumbers += `${element} `;
+});
 
-console.log(allNumbers);
- 
+console.log(`The elements of numbers are: ${elementsOfNumbers}`);

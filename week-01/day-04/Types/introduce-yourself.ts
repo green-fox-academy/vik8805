@@ -19,4 +19,3 @@ let height: number = 1.83;
 console.log('Hello! My name is', name, '!');
 console.log('I\'m', age, 'years old.');
 console.log('My height is', height, 'm.');
-
