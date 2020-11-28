@@ -6,6 +6,8 @@
 // -  bonus for using the correct built in array method
 
 let numbers: number[] = [4, 5, 6, 7];
+
+// My first solution with forEach
 let elementsOfNumbers: string = '';
 
 numbers.forEach(function (element: number) {
@@ -13,3 +15,6 @@ numbers.forEach(function (element: number) {
 });
 
 console.log(`The elements of numbers are: ${elementsOfNumbers}`);
+
+// My second solution with join
+console.log(`The elements of numbers are: ${numbers.join(` `)}`);
