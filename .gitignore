@@ -106,3 +106,5 @@ dist
 tsconfig.js
 
 /week-02/day-03/Drawing/test/
+
+package-lock.json
