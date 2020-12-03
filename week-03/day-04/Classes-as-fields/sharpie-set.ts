@@ -1,5 +1,4 @@
 'use strict';
-import { countReset } from 'console';
 import { Sharpie } from '../../day-03/Encapsulation-and-constructor/sharpie';
 
 // Reuse your Sharpie class
