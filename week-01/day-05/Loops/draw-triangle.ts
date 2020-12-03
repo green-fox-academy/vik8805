@@ -14,4 +14,4 @@ let lineCount: number = 4;
 for (let i: number = 0, pen: string = ''; i < lineCount + 1; i++) {
   console.log(pen);
   pen += '*';
-};
+}

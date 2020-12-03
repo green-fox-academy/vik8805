@@ -10,7 +10,6 @@
 //  - a yellow with green text: "Superb!"
 
 class PostIt {
-
   private _backgroundColor: string;
   private _text: string;
   private _textColor: string;
@@ -19,8 +18,8 @@ class PostIt {
     this._backgroundColor = backgroundColor;
     this._text = text;
     this._textColor = textColor;
-  };
-};
+  }
+}
 
 let postFirst = new PostIt('orange', 'Idea 1', 'blue');
 let postSecond = new PostIt('pink', 'Awesome', 'black');

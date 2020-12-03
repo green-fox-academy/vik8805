@@ -3,8 +3,8 @@
 class Domino {
   values: number[];
   constructor(valueA: number, valueB: number) {
-      this.values = [valueA, valueB];
+    this.values = [valueA, valueB];
   }
 }
 
-export {Domino};
+export { Domino };

@@ -10,8 +10,8 @@ export {};
 
 function drawSquare(startX: number, startY: number, color: string) {
   ctx.fillStyle = color;
-  ctx.fillRect(startX, startY, canvas.width / 8, canvas.height / 8)
-};
+  ctx.fillRect(startX, startY, canvas.width / 8, canvas.height / 8);
+}
 
 for (let i: number = 0, startI: number = 0; i < 8; i++) {
   for (let j: number = 0, startJ: number = 0; j < 8; j++) {
@@ -19,8 +19,8 @@ for (let i: number = 0, startI: number = 0; i < 8; i++) {
       drawSquare(startJ, startI, 'black');
     } else {
       drawSquare(startJ, startI, 'red');
-    };
+    }
     startJ += canvas.width / 8;
-  };
+  }
   startI += canvas.height / 8;
-};
+}

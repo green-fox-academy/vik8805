@@ -14,7 +14,7 @@ if (!names.length) {
   console.log(`The list is empty.\r\n`);
 } else {
   console.log(`The list is not empty.\r\n`);
-};
+}
 
 // Add John to the list
 names.push(`John`);
@@ -43,7 +43,7 @@ names.forEach(function (value: string) {
 //    3. Amanda
 console.log(`\r\nElements of the list:`);
 names.forEach(function (value: string, index: number) {
-  console.log(` ${index += 1}. ${value}`);
+  console.log(` ${(index += 1)}. ${value}`);
 });
 
 // Remove the 2nd element

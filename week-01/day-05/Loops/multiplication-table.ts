@@ -22,4 +22,4 @@ let number: number = 15;
 for (let i: number = 1, result: number = 0; i < 11; i++) {
   result = i * number;
   console.log(i, '*', number, '=', result);
-};
+}

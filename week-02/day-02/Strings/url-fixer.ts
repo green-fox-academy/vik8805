@@ -5,6 +5,6 @@
 
 let url: string = 'https//www.reddit.com/r/nevertellmethebots';
 
-url = url.slice(0,5) + ':' + url.slice(5).replace('bots', 'odds');
+url = url.slice(0, 5) + ':' + url.slice(5).replace('bots', 'odds');
 
 console.log(url);

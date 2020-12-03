@@ -9,11 +9,10 @@
 function writeNameInToFile(fileName: string, name: string) {
   const fs = require('fs');
   try {
-    fs.writeFileSync(fileName, `\n${name}`, {'flag': 'a'});
-  }
-  catch(e) {
+    fs.writeFileSync(fileName, `\n${name}`, { flag: 'a' });
+  } catch (e) {
     console.log(`Unable to write file: ${fileName}`);
-  };
-};
+  }
+}
 
 writeNameInToFile('my-file.txt', 'Viktor Bertalan');

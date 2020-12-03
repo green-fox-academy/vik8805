@@ -10,12 +10,11 @@
 //  use export Counter at the end of your file
 //  Check if everything is working fine with the proper test
 //    - Download counter.test.js and place it next to your solution
-//    - Run npm install tape @types/tape --save-dev in the root of your repository folder 
+//    - Run npm install tape @types/tape --save-dev in the root of your repository folder
 //      (where you have a package-lock.json file already)
 //    - Run the test file with ts-node
 
 export class Counter {
-
   private _numberToUse: number;
   private _initialNumber: number;
 
@@ -26,22 +25,22 @@ export class Counter {
     } else {
       this._numberToUse = numberToUse;
       this._initialNumber = numberToUse;
-    };
-  };
+    }
+  }
 
   public add(increaseByNumb?: number) {
     if (increaseByNumb === undefined) {
       this._numberToUse += 1;
     } else {
       this._numberToUse += increaseByNumb;
-    };
-  };
+    }
+  }
 
   public get(): number {
     return this._numberToUse;
-  };
+  }
 
   public reset() {
     this._numberToUse = this._initialNumber;
-  };
-};
+  }
+}

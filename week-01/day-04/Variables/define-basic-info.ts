@@ -12,6 +12,6 @@ let myHeight: number = 1.83;
 let married: boolean = true;
 
 console.log('My name is', myName);
-console.log('I\'m', myAge, 'years old.');
-console.log('I\'m', myHeight, 'meters tall.');
-console.log('I\'m married:', married);
+console.log("I'm", myAge, 'years old.');
+console.log("I'm", myHeight, 'meters tall.');
+console.log("I'm married:", married);

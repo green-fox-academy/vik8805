@@ -15,7 +15,7 @@ function drawPurpleSteps(x: number) {
     ctx.fillStyle = '#b04ef0';
     ctx.fillRect(x + 1, x + 1, 8, 8);
     x += 10;
-  };
-};
+  }
+}
 
 drawPurpleSteps(10);

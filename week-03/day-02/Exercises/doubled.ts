@@ -10,10 +10,9 @@ try {
   for (let i = 0; i < fileContent.length; i++) {
     if (i % 2) {
       decryptedText += fileContent[i];
-    };
-  };
+    }
+  }
   console.log(decryptedText);
+} catch (e) {
+  console.log(e);
 }
-catch(e) {
-    console.log(e);
-};

@@ -11,7 +11,8 @@ let length: number = 10;
 let height: number = 10;
 let width: number = 10;
 
-let surfArea: number = 2 * length * width + 2 * length * height + 2 * height * width;
+let surfArea: number =
+  2 * length * width + 2 * length * height + 2 * height * width;
 let volume: number = length * height * width;
 
 console.log('Surface Area:', surfArea);

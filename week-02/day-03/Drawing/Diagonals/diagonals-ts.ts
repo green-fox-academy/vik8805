@@ -22,7 +22,10 @@ function drawDiagonal(startHorizontal: number, startVertical: number) {
     ctx.lineTo(canvas.width, 0);
     ctx.strokeStyle = 'red';
     ctx.stroke();
-  } else if (startHorizontal === canvas.width && startVertical === canvas.height) {
+  } else if (
+    startHorizontal === canvas.width &&
+    startVertical === canvas.height
+  ) {
     ctx.beginPath();
     ctx.moveTo(canvas.width, canvas.height);
     ctx.lineTo(0, 0);
@@ -35,8 +38,10 @@ function drawDiagonal(startHorizontal: number, startVertical: number) {
     ctx.strokeStyle = 'red';
     ctx.stroke();
   } else {
-    alert(`You can add only the corner positions of the canvas, to draw a diagonal. For the starting horizontal position you can add 0, or ${canvas.width} and for the starting vertical position, you can add 0, or ${canvas.height}.`);
-  };
-};
+    alert(
+      `You can add only the corner positions of the canvas, to draw a diagonal. For the starting horizontal position you can add 0, or ${canvas.width} and for the starting vertical position, you can add 0, or ${canvas.height}.`
+    );
+  }
+}
 
 drawDiagonal(0, 0);

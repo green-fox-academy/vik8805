@@ -16,28 +16,28 @@ function drawLineToCenter(startX: number, startY: number) {
   ctx.moveTo(startX, startY);
   ctx.lineTo(canvas.width / 2, canvas.height / 2);
   ctx.stroke();
-};
+}
 
 for (let i: number = 0, posX: number = 0, posY: number = 0; i < 4; i++) {
   if (posX < canvas.width && posY === 0) {
     for (let j = 0; j < canvas.width / 20; j++) {
       drawLineToCenter(posX, posY);
       posX += 20;
-    };
+    }
   } else if (posX % canvas.width === 0 && posY < canvas.height) {
     for (let k: number = 0; k < canvas.height / 20; k++) {
       drawLineToCenter(posX, posY);
       posY += 20;
-    };
+    }
   } else if (posX > 0 && posY % canvas.height === 0) {
     for (let l: number = 0; l < canvas.width / 20; l++) {
       drawLineToCenter(posX, posY);
       posX -= 20;
-    };
+    }
   } else if (posX % canvas.width === 0 && posY > 0) {
     for (let m: number = 0; m < canvas.height / 20; m++) {
       drawLineToCenter(posX, posY);
       posY -= 20;
-    };
-  };
-};
+    }
+  }
+}

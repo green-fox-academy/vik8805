@@ -20,7 +20,7 @@ function goToCenter(x: number, y: number) {
         ctx.lineTo(canvas.width / 2, canvas.height / 2);
         ctx.stroke();
         x -= canvas.width / 6;
-      };
+      }
     } else {
       for (let i: number = 0; i < 3; i++) {
         ctx.beginPath();
@@ -28,11 +28,13 @@ function goToCenter(x: number, y: number) {
         ctx.lineTo(canvas.width / 2, canvas.height / 2);
         ctx.stroke();
         x += canvas.width / 6;
-      };
-    };
+      }
+    }
   } else {
-    alert(`You can't give bigger numbers to x than ${canvas.width} and to y than ${canvas.height}`);
-  };
-};
+    alert(
+      `You can't give bigger numbers to x than ${canvas.width} and to y than ${canvas.height}`
+    );
+  }
+}
 
 goToCenter(600, 400);

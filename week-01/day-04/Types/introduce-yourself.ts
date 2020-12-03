@@ -1,5 +1,5 @@
 'use strict';
-export { }
+export {};
 
 // Write a program that prints a few details to the console about you
 // It should print each detail to a new line.
@@ -17,5 +17,5 @@ let age: number = 32;
 let height: number = 1.83;
 
 console.log('Hello! My name is', name, '!');
-console.log('I\'m', age, 'years old.');
+console.log("I'm", age, 'years old.');
 console.log('My height is', height, 'm.');

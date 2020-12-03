@@ -13,13 +13,26 @@ export {};
 
 function squareDrawing(squareSize: number, squareColor: string) {
   ctx.strokeStyle = squareColor;
-  ctx.strokeRect((canvas.width - squareSize) / 2, (canvas.height - squareSize) / 2, squareSize, squareSize)
-};
+  ctx.strokeRect(
+    (canvas.width - squareSize) / 2,
+    (canvas.height - squareSize) / 2,
+    squareSize,
+    squareSize
+  );
+}
 
-let colors: string[] = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+let colors: string[] = [
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'indigo',
+  'violet',
+];
 
 for (let j: number = 0; j < canvas.width; j += 7) {
   for (let i: number = 0; i < colors.length; i++) {
     squareDrawing(j + i, colors[i]);
-  };
-};
+  }
+}

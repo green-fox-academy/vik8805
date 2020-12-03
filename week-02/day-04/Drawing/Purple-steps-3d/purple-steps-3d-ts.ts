@@ -16,7 +16,7 @@ function drawPurpleSteps3d(start: number, size: number) {
     ctx.fillRect(start + 1, start + 1, size - 2, size - 2);
     start += size;
     size += 10;
-  };
-};
+  }
+}
 
 drawPurpleSteps3d(10, 10);

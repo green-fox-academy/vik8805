@@ -8,8 +8,18 @@ function printParams(...inputString: string[]): void {
   let allInputString: string = '';
   for (let i: number = 0; i < inputString.length; i++) {
     allInputString += `${inputString[i]} `;
-  };
+  }
   console.log(allInputString);
-};
+}
 
-printParams('Hey', 'Visitor!', 'It\'s', 'my', 'pleasure', 'to', 'see', 'you', 'here.');
+printParams(
+  'Hey',
+  'Visitor!',
+  "It's",
+  'my',
+  'pleasure',
+  'to',
+  'see',
+  'you',
+  'here.'
+);

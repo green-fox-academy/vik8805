@@ -5,7 +5,24 @@
 // Assemble the fragments into the out variable
 
 let out: string = '';
-let notSoCrypticMessage: number[] = [1, 12, 1, 2, 11, 1, 7, 11, 1, 49, 1, 3, 11, 1, 50, 11];
+let notSoCrypticMessage: number[] = [
+  1,
+  12,
+  1,
+  2,
+  11,
+  1,
+  7,
+  11,
+  1,
+  49,
+  1,
+  3,
+  11,
+  1,
+  50,
+  11,
+];
 
 let hashmap: object = {
   7: 'run around and desert you',
@@ -15,11 +32,11 @@ let hashmap: object = {
   12: 'give you up, ',
   1: 'Never gonna ',
   11: '\r\n',
-  3: 'say goodbye '
+  3: 'say goodbye ',
 };
 
 for (let i: number = 0; i < notSoCrypticMessage.length; i++) {
   out += hashmap[notSoCrypticMessage[i]];
-};
+}
 
 console.log(out);

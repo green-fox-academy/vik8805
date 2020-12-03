@@ -5,8 +5,8 @@
 function sum(givenNumber: number): number {
   for (let i: number = givenNumber - 1; i > 0; i--) {
     givenNumber += i;
-  };
+  }
   return givenNumber;
-};
+}
 
 console.log(sum(21));

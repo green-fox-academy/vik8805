@@ -11,7 +11,7 @@ function divideByZero(inputNumber: number): void {
     return console.log(result);
   } else {
     return console.log('fail');
-  };
-};
+  }
+}
 
 divideByZero(0);

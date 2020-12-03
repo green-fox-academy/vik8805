@@ -9,11 +9,12 @@ function copyFile(copyFrom: string, copyInto: string): boolean {
   try {
     let copyFromContent: string = fs.readFileSync(copyFrom, 'utf-8');
     fs.writeFileSync(copyInto, copyFromContent);
-  }
-  catch(e) {
+  } catch (e) {
     return false;
-  };
-  return fs.readFileSync(copyFrom, 'utf-8') === fs.readFileSync(copyInto, 'utf-8');
-};
+  }
+  return (
+    fs.readFileSync(copyFrom, 'utf-8') === fs.readFileSync(copyInto, 'utf-8')
+  );
+}
 
 console.log(copyFile('innen.txt', 'ide.txt'));

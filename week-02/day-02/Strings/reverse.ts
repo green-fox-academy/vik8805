@@ -6,7 +6,7 @@
 function reverse(text: string): string {
   text = text.split('').reverse().join('');
   return text;
-};
+}
 
 let toBeReversed: string = `.eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI`;
 

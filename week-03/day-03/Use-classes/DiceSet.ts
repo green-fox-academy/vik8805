@@ -40,19 +40,19 @@ class DiceSet {
 let diceSet = new DiceSet();
 console.log(diceSet.roll());
 
-console.log("------------------");
+console.log('------------------');
 
 function equalSix(value: number): boolean {
-  return (value === 6);
-};
+  return value === 6;
+}
 
 while (!diceSet.dice.every(equalSix)) {
   for (let i: number = 0; i < diceSet.dice.length; i++) {
     if (diceSet.dice[i] !== 6) {
       diceSet.reroll(i);
       console.log(diceSet.getCurrent());
-      console.log("------------------");
-    };
-  };
-};
+      console.log('------------------');
+    }
+  }
+}
 console.log(diceSet.getCurrent());

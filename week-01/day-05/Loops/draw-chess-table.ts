@@ -20,16 +20,16 @@ for (let i: number = 0, lines: number = 8, draw: string = ''; i < lines; i++) {
         draw += '%';
       } else {
         draw += ' ';
-      };
-    };
+      }
+    }
   } else {
-      for (let k: number = 0; k < lines; k++) {
-        if (k % 2 === 0) {
-          draw += ' ';
-        } else {
-          draw += '%';
-        };
-      };
-  };
+    for (let k: number = 0; k < lines; k++) {
+      if (k % 2 === 0) {
+        draw += ' ';
+      } else {
+        draw += '%';
+      }
+    }
+  }
   console.log(draw);
-};
+}

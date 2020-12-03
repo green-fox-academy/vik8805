@@ -1,6 +1,6 @@
 'use strict';
 
-import { Pokemon } from './Pokemon'
+import { Pokemon } from './Pokemon';
 
 let pokemonOfAsh: Pokemon[] = initializePokemon();
 
@@ -18,19 +18,19 @@ let wildPokemon: Pokemon = new Pokemon('Oddish', 'leaf', 'water');
 console.log(`I choose you!, ${chooseEffective(pokemonOfAsh, wildPokemon)}`);
 
 function initializePokemon(): Pokemon[] {
-    return [
-        new Pokemon('Balbasaur', 'leaf', 'water'),
-        new Pokemon('Pikatchu', 'electric', 'water'),
-        new Pokemon('Charizard', 'fire', 'leaf'),
-        new Pokemon('Balbasaur', 'water', 'fire'),
-        new Pokemon('Kingler', 'water', 'fire')
-    ];
-};
+  return [
+    new Pokemon('Balbasaur', 'leaf', 'water'),
+    new Pokemon('Pikatchu', 'electric', 'water'),
+    new Pokemon('Charizard', 'fire', 'leaf'),
+    new Pokemon('Balbasaur', 'water', 'fire'),
+    new Pokemon('Kingler', 'water', 'fire'),
+  ];
+}
 
-function chooseEffective(myPokemons: Pokemon[], hostilePokemon: Pokemon){
+function chooseEffective(myPokemons: Pokemon[], hostilePokemon: Pokemon) {
   for (let i: number = 0; i < myPokemons.length; i++) {
     if (myPokemons[i].isEffectiveAgainst(hostilePokemon)) {
       return myPokemons[i].name;
-    };
-  };
-};
+    }
+  }
+}

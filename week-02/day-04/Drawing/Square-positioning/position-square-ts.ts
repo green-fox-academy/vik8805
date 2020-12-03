@@ -14,10 +14,10 @@ export {};
 
 function drawSquare(x: number, y: number) {
   ctx.strokeRect(x, y, 50, 50);
-};
+}
 
 for (let i: number = 0, startX: number = 60, startY: number = 10; i < 3; i++) {
   drawSquare(startX, startY);
   startX += 70;
   startY += 70;
-};
+}

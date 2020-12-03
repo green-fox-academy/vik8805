@@ -8,6 +8,6 @@ let baseNum: number = 123;
 
 function doubling(inputNumber: number): number {
   return inputNumber * 2;
-};
+}
 
 console.log(doubling(baseNum));

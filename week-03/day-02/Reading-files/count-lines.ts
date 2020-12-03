@@ -10,11 +10,9 @@ function countLines(fileName: string): number {
   const fs = require('fs');
   try {
     let fileContent: string = fs.readFileSync(fileName, 'utf-8');
-    numberOfLines = fileContent.split("\n").length;
-  }
-  catch(e) {
-  };
+    numberOfLines = fileContent.split('\n').length;
+  } catch (e) {}
   return numberOfLines;
-};
+}
 
 console.log(countLines('readme.txt'));

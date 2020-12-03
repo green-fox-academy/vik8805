@@ -8,33 +8,32 @@ import { Sharpie } from '../../day-03/Encapsulation-and-constructor/sharpie';
 //  - removeTrash() -> removes all unusable sharpies
 
 class SharpieSet {
-
   private _listOfSharpie: Sharpie[] = [];
 
   public get listOfSharpie(): Sharpie[] {
     return this._listOfSharpie;
-  };
+  }
 
   public addToList(sharpieToAdd: Sharpie): void {
     this._listOfSharpie.push(sharpieToAdd);
-  };
+  }
 
   public countUsable(indexOfSharpieToCheck: number): boolean {
     if (this.listOfSharpie[indexOfSharpieToCheck].inkAmount === 0) {
       return false;
     } else {
       return true;
-    };
-  };
+    }
+  }
 
   public removeTrash() {
     for (let i = 0; i < this.listOfSharpie.length; i++) {
       if (!this.countUsable(i)) {
         this.listOfSharpie.splice(i, 1);
-      };
-    };
-  };
-};
+      }
+    }
+  }
+}
 
 let drawer = new SharpieSet();
 let sharpieBlue = new Sharpie('blue', 1);

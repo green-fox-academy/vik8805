@@ -15,22 +15,22 @@ function drawHorizLine(x: number, y: number) {
   if (x + 50 >= canvas.width) {
     alert(`You have to give a smaller number than ${canvas.width - 50} to x.`);
   } else if (y >= canvas.height / 2) {
-      for (let i: number = 0; i < 3; i++) {
+    for (let i: number = 0; i < 3; i++) {
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(x + 50, y);
       ctx.stroke();
       y -= canvas.height / 6;
-      };
-    } else {
-      for (let i: number = 0; i < 3; i++) {
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + 50, y);
-        ctx.stroke();
-        y += canvas.height / 6
-      };
-    };
-};
+    }
+  } else {
+    for (let i: number = 0; i < 3; i++) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + 50, y);
+      ctx.stroke();
+      y += canvas.height / 6;
+    }
+  }
+}
 
 drawHorizLine(400, 200);

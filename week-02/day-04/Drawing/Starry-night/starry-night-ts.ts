@@ -15,7 +15,7 @@ export {};
 function drawStar(startX: number, startY: number) {
   ctx.fillRect(startX, startY, 10, 10);
   ctx.fillStyle = 'yellow';
-};
+}
 
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.fillStyle = 'black';
@@ -24,4 +24,4 @@ for (let i: number = 0; i < 15; i++) {
   let randomX: number = Math.floor(Math.random() * canvas.width) + 1;
   let randomY: number = Math.floor(Math.random() * canvas.height) + 1;
   drawStar(randomX, randomY);
-};
+}

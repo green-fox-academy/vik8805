@@ -9,15 +9,14 @@ function divideByZero(inputNumber: number): void {
   let result: number = 0;
   try {
     if (inputNumber === 0) {
-      throw 'fail'; 
+      throw 'fail';
     } else {
       result = 10 / inputNumber;
       return console.log(result);
-    };
-  }
-  catch(e) {
+    }
+  } catch (e) {
     return console.log(e);
-  };
-};
+  }
+}
 
 divideByZero(0);

@@ -13,11 +13,9 @@ function writeMultiLines(path: string, word: string, number: number) {
   const fs = require('fs');
   try {
     for (let i: number = 0; i < number; i++) {
-      fs.writeFileSync(path, `${word}\n`, {'flag': 'a'});
-    };
-  }
-  catch(e) {
-  };
-};
+      fs.writeFileSync(path, `${word}\n`, { flag: 'a' });
+    }
+  } catch (e) {}
+}
 
 writeMultiLines('readme.txt', 'apple', 5);

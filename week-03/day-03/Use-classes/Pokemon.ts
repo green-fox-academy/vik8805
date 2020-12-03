@@ -6,12 +6,12 @@ export class Pokemon {
   effectiveAgainst: string;
 
   constructor(name: string, type: string, effectiveAgainst: string) {
-      this.name = name;
-      this.type = type;
-      this.effectiveAgainst = effectiveAgainst;
+    this.name = name;
+    this.type = type;
+    this.effectiveAgainst = effectiveAgainst;
   }
 
   isEffectiveAgainst(pokemon: Pokemon): boolean {
-      return this.effectiveAgainst === pokemon.type;
+    return this.effectiveAgainst === pokemon.type;
   }
 }

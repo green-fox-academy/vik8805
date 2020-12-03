@@ -6,18 +6,17 @@
 //  - refill(car) -> decreases the gasAmount by the capacity of the car and increases the cars gasAmount
 
 class Station {
-
   private _gasAmount: number;
 
   constructor(gasAmount: number) {
     this._gasAmount = gasAmount;
-  };
+  }
 
   public refill(carToRefill: Car) {
-    this._gasAmount -= (carToRefill.capacity - carToRefill.gasAmount);
-    carToRefill.gasAmount += (carToRefill.capacity - carToRefill.gasAmount);
-  };
-};
+    this._gasAmount -= carToRefill.capacity - carToRefill.gasAmount;
+    carToRefill.gasAmount += carToRefill.capacity - carToRefill.gasAmount;
+  }
+}
 
 // Car
 //  - gasAmount -> gas amount of the car
@@ -27,27 +26,26 @@ class Station {
 //    * initialize capacity -> 100
 
 class Car {
-
   private _gasAmount: number;
   private _capacity: number;
 
   constructor() {
     this._gasAmount = 0;
     this._capacity = 100;
-  };
+  }
 
   public get capacity(): number {
     return this._capacity;
-  };
+  }
 
   public get gasAmount(): number {
     return this._gasAmount;
-  };
+  }
 
   public set gasAmount(gasAmount: number) {
-      this._gasAmount = gasAmount;
-  };
-};
+    this._gasAmount = gasAmount;
+  }
+}
 
 let MOL = new Station(1000);
 let nissan = new Car();

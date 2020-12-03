@@ -5,5 +5,5 @@
 for (let i: number = 0, j: number = 1; i < 500; i++, j++) {
   if (j % 2 === 0) {
     console.log(j);
-  };
-};
+  }
+}

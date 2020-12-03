@@ -9,6 +9,6 @@ let nameToGreet: string = 'Green Fox';
 
 function greet(inputString: string): void {
   console.log(`Greetings, dear ${inputString}`);
-};
+}
 
 greet(nameToGreet);
