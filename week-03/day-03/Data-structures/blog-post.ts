@@ -15,7 +15,7 @@
 //      When I asked to take his picture outside one of IBM’s New York City offices, he told me that he wasn’t
 //      really into the whole organizer profile thing.
 
-class BlogPost {
+export class BlogPost {
   private _title: string;
   private _authorName: string;
   private _publicationDate: string;
@@ -33,7 +33,7 @@ class BlogPost {
     this._text = text;
   }
 }
-
+/*
 let blogFirst = new BlogPost(
   'Lorem Ipsum',
   'John Doe',
@@ -56,3 +56,4 @@ let blogThird = new BlogPost(
 console.log(blogFirst);
 console.log(blogSecond);
 console.log(blogThird);
+*/
