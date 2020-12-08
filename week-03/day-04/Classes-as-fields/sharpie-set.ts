@@ -17,7 +17,26 @@ class SharpieSet {
   public addToList(sharpieToAdd: Sharpie): void {
     this._listOfSharpie.push(sharpieToAdd);
   }
-
+  // NEW SOLUTION
+  public countUsable(): number {
+    let counter: number = 0;
+    this._listOfSharpie.map(function (value: Sharpie): void {
+      if (value.inkAmount > 0) {
+        counter++;
+      }
+    });
+    return counter;
+  }
+  // NEW SOLUTION
+  public removeTrash() {
+    this._listOfSharpie.map(function (field: Sharpie, index: number, listOfSharpie: Sharpie[]): void {
+      if (!field.inkAmount) {
+        listOfSharpie.splice(index, 1);
+      }
+    });
+  }
+  // BAD SOLUTION
+  /*
   public countUsable(indexOfSharpieToCheck: number): boolean {
     if (this.listOfSharpie[indexOfSharpieToCheck].inkAmount === 0) {
       return false;
@@ -25,14 +44,14 @@ class SharpieSet {
       return true;
     }
   }
-
+  // BAD SOLUTION
   public removeTrash() {
     for (let i = 0; i < this.listOfSharpie.length; i++) {
       if (!this.countUsable(i)) {
         this.listOfSharpie.splice(i, 1);
       }
     }
-  }
+  }*/
 }
 
 let drawer = new SharpieSet();
