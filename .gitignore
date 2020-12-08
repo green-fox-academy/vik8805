@@ -109,6 +109,8 @@ tsconfig.js
 
 /week-03/day-04/myownpirates/
 
+/test/
+
 package-lock.json
 
 .eslintrc.js
