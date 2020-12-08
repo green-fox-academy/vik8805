@@ -23,28 +23,25 @@ export class Armada {
   }
 
   public war(otherArmada: Armada): boolean {
-    let indexThis: number = 0;
-    let indexOther: number = 0;
-    while (
-      indexThis < this._numberOfShips &&
-      indexOther < otherArmada._numberOfShips
-    ) {
-      let shipOfThis: Ship = this._fleet[indexThis];
-      let shipOfOther: Ship = otherArmada._fleet[indexOther];
-      let battle = new BattleApp(shipOfThis, shipOfOther);
+    let indexOfThisFleetsShip: number = 0;
+    let indexOfOtherFleetsShip: number = 0;
+    while (indexOfThisFleetsShip < this._numberOfShips && indexOfOtherFleetsShip < otherArmada._numberOfShips) {
+      let shipOfThisFleet: Ship = this._fleet[indexOfThisFleetsShip];
+      let shipOfOtherFleet: Ship = otherArmada._fleet[indexOfOtherFleetsShip];
+      let battle = new BattleApp(shipOfThisFleet, shipOfOtherFleet);
       if (battle.battleResult) {
-        indexOther++;
-        if (shipOfThis.numberOfAlivePirates <= 0) {
-          indexThis++;
+        indexOfOtherFleetsShip++;
+        if (shipOfThisFleet.numberOfAlivePirates <= 0) {
+          indexOfThisFleetsShip++;
         }
       } else {
-        indexThis++;
-        if (shipOfOther.numberOfAlivePirates <= 0) {
-          indexOther++;
+        indexOfThisFleetsShip++;
+        if (shipOfOtherFleet.numberOfAlivePirates <= 0) {
+          indexOfOtherFleetsShip++;
         }
       }
     }
-    if (indexOther === otherArmada._numberOfShips) {
+    if (indexOfOtherFleetsShip === otherArmada._numberOfShips) {
       return true;
     } else {
       return false;

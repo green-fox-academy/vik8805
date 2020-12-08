@@ -14,7 +14,7 @@
 // And... if you get that far...
 // Add a parrot.
 
-export class Pirates {
+export class Pirate {
   private _drunkenness: number;
   private _isDead: boolean;
   private _isPassedOut: boolean;
@@ -27,7 +27,11 @@ export class Pirates {
     this._isPassedOut = false;
   }
 
-  public drinkSomeRum() {
+  public get isDead(): boolean {
+    return this._isDead;
+  }
+
+  public drinkSomeRum(): void {
     if (!this._isDead) {
       this._drunkenness += 1;
     } else {
@@ -35,7 +39,7 @@ export class Pirates {
     }
   }
 
-  public howsItGoingMate() {
+  public howsItGoingMate(): void {
     if (!this._isDead) {
       if (this._drunkenness <= 4) {
         console.log(`Pour me anudder!`);
@@ -48,12 +52,12 @@ export class Pirates {
     }
   }
 
-  public die() {
+  public die(): void {
     this._isDead = true;
     this._isPassedOut = false;
   }
 
-  public brawl(otherPirate: Pirates) {
+  public brawl(otherPirate: Pirate): void {
     if (!this._isDead && !otherPirate._isDead) {
       let chance: number = Math.floor(Math.random() * 3) + 1;
       if (chance === 1) {

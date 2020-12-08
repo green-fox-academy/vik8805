@@ -1,5 +1,5 @@
 'use strict';
-import { Pirates } from './pirate';
+import { Pirate } from './pirate';
 
 // Create a Ship class.
 // The Ship stores Pirate-s instances in a list as the crew and has one captain who is also a Pirate.
@@ -19,8 +19,8 @@ import { Pirates } from './pirate';
 //  - The winner captain and crew has a party, including a random number of rum :)
 
 export class Ship {
-  private _captain: Pirates;
-  private _crew: Pirates[];
+  private _captain: Pirate;
+  private _crew: Pirate[];
   private _captainsDrunkness: number;
   private _captainsState: string;
   private _numberOfAlivePirates: number;
@@ -38,23 +38,26 @@ export class Ship {
     return this._captainsDrunkness;
   }
 
-  public fillShip() {
-    this._captain = new Pirates(true);
+  public fillShip(): void {
+    this._captain = new Pirate(true);
     this._captainsDrunkness = 0;
     this._captainsState = `alive`;
-    this._numberOfAlivePirates = Math.floor(Math.random() * 10) + 1 + 5;
-    for (let i: number = 0; i < this._numberOfAlivePirates; i++) {
-      this._crew.push(new Pirates());
+    for (let i: number = 0; i < Math.floor(Math.random() * 10) + 1 + 5; i++) {
+      this._crew.push(new Pirate());
     }
+    this._numberOfAlivePirates = 0;
+    let numberOfAlivePirates: number = 0;
+    this._crew.map(function (value: Pirate): number {
+      if (!value.isDead) {
+        numberOfAlivePirates++;
+      }
+      return numberOfAlivePirates;
+    });
   }
 
   public battle(otherShip: Ship): boolean {
-    if (
-      this._numberOfAlivePirates - this._captainsDrunkness >
-      otherShip._numberOfAlivePirates - otherShip._captainsDrunkness
-    ) {
-      let losses: number =
-        Math.floor(Math.random() * otherShip._numberOfAlivePirates) + 1;
+    if (this._numberOfAlivePirates - this._captainsDrunkness > otherShip._numberOfAlivePirates - otherShip._captainsDrunkness) {
+      let losses: number = Math.floor(Math.random() * otherShip._numberOfAlivePirates) + 1;
       for (let i: number = 0; i < losses; i++) {
         otherShip._crew[i].die();
         otherShip._numberOfAlivePirates--;
@@ -65,19 +68,13 @@ export class Ship {
           this._captain.drinkSomeRum();
           this._captainsDrunkness += 1;
         } else {
-          this._crew[
-            Math.floor(Math.random() * this._crew.length)
-          ].drinkSomeRum();
+          this._crew[Math.floor(Math.random() * this._crew.length)].drinkSomeRum();
         }
       }
       return true;
     }
-    if (
-      this._numberOfAlivePirates - this._captainsDrunkness <=
-      otherShip._numberOfAlivePirates - otherShip._captainsDrunkness
-    ) {
-      let losses: number =
-        Math.floor(Math.random() * this._numberOfAlivePirates) + 1;
+    if (this._numberOfAlivePirates - this._captainsDrunkness <= otherShip._numberOfAlivePirates - otherShip._captainsDrunkness) {
+      let losses: number = Math.floor(Math.random() * this._numberOfAlivePirates) + 1;
       for (let i: number = 0; i < losses; i++) {
         this._crew[i].die();
         this._numberOfAlivePirates--;
@@ -88,9 +85,7 @@ export class Ship {
           otherShip._captain.drinkSomeRum();
           otherShip._captainsDrunkness += 1;
         } else {
-          otherShip._crew[
-            Math.floor(Math.random() * otherShip._crew.length)
-          ].drinkSomeRum();
+          otherShip._crew[Math.floor(Math.random() * otherShip._crew.length)].drinkSomeRum();
         }
       }
       return false;
