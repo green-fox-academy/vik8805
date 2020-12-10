@@ -35,4 +35,8 @@ export class Animal {
   public get hunger(): number {
     return this._hunger;
   }
+
+  public get thirst(): number {
+    return this._thirst;
+  }
 }
