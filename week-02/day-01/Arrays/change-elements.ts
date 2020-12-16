@@ -6,11 +6,11 @@
 
 let numbers: number[] = [1, 2, 3, 8, 5, 6];
 
-numbers = numbers.map(function (element: number): number {
-  if (element === 8) {
-    element = 4;
+numbers.map(function (value: number, index: number): number[] {
+  if (value === 8) {
+    numbers[index] = 4;
   }
-  return element;
+  return numbers;
 });
 
 console.log(numbers[3]);
