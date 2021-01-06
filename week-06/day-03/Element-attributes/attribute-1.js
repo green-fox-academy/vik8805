@@ -18,4 +18,5 @@ image.setAttribute('src', 'https://napidoktor.hu/wp-content/uploads/2016/03/voer
 link.setAttribute('href', 'https://www.greenfoxacademy.com/')
 
 secondButton.setAttribute('disabled', 'true');
+
 secondButton.innerText = `Don't click me!`;
