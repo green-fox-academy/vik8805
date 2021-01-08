@@ -1,6 +1,6 @@
 'use strict';
 
-let gallery = ['clouds', 'clower', 'lake', 'rails', 'landscape', 'space', 'sunset', 'travel', 'water', 'waves',];
+let gallery = ['clouds', 'clower', 'lake', 'rails', 'sunset', 'travel', 'water', 'waves', 'landscape', 'space',];
 
 const newBackground = document.createElement('div');
 const body = document.querySelector('body');
@@ -21,7 +21,7 @@ const newActualImage = document.createElement('img');
 const controlPanel = document.querySelector('.controlPanel');
 controlPanel.appendChild(newActualImage);
 newActualImage.classList.add('actualImage');
-newActualImage.setAttribute('src', 'images/waves.jpg');
+newActualImage.setAttribute('src', `images/${gallery[0]}.jpg`);
 
 for (let i = 0; i < 2; i++) {
   const newArrowImage = document.createElement('img');
@@ -49,9 +49,18 @@ for (let j = 0; j < gallery.length; j++) {
     newSmallImageBox.classList.add(`smallImageBox`);
     newSmallImageBox.classList.add(`${j}`);
     const newSmallImage = document.createElement('img');
-    const smallImageBox = document.querySelectorAll(`.smallImageBox`);
-    smallImageBox[j].appendChild(newSmallImage);
+    const smallImageBoxes = document.querySelectorAll(`.smallImageBox`);
+    smallImageBoxes[j].appendChild(newSmallImage);
     newSmallImage.classList.add('smallImage');
+    newSmallImage.classList.add(`${j}`);
     newSmallImage.setAttribute('src', `images/${gallery[j]}.jpg`);
-  }
-}
+  };
+};
+
+const clickableImage = document.querySelectorAll('.smallImage');
+clickableImage.forEach((value) => {
+  value.onclick = () => {
+    const newImageSrc = value.getAttribute('src');
+    newActualImage.setAttribute('src', `${newImageSrc}`);
+  };
+})
