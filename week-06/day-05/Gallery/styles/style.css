@@ -1,0 +1,57 @@
+.background {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 0;
+  overflow: hidden;
+  padding-top: 56.25%;
+  background-image: url("../images/background.png");
+  background-size: 100%;
+  position: relative;
+}
+
+.main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.controlPanel {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 70%;
+  width: 80%;
+  overflow: hidden;
+  background-color: white;
+  background-size: 100%;
+  box-shadow: 5px 5px 8px 5px #999898;
+  display: flex;
+  justify-content: space-around;
+}
+
+.actualImage {
+  max-width:100%;
+  max-height:100%;
+}
+
+.arrowLeft {
+  margin-left: 1%;
+}
+
+.arrowRight {
+  margin-right: 1%;
+}
+
+.imageStore {
+
+}
