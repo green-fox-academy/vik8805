@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../static/style.css" />
+  <title>Samoai Joe</title>
+</head>
+<body>
+  <h1>Cocktails</h1>
+  <div id="main">
+    <div id="names">
+      <h3>NAME</h3>
+      <ul>
+        <% for(let i = 0; i < cocktails.length; i++) { %>
+          <% if (i % 2) { %>
+            <ul class="white">
+          <% } else { %>
+            <ul class="grey">
+          <% } %>
+              <% if (cocktails[i].isAlcoholic) { %>
+                <li class="name"><%= cocktails[i].name %></li>
+              <% } else { %>
+                <li class="name"><%= cocktails[i].name %> (non-alcoholic)</li>
+              <% } %>
+                <li class="contains"><%= cocktails[i].contains %></li>
+            </ul>
+        <% } %>
+      </ul>
+    </div>
+    <div id="prices">
+      <h3>PRICE</h3>
+      <ul>
+        <% for(let i = 0; i < cocktails.length; i++) { %>
+          <% if (i % 2) { %>
+            <li class="price white"><%= cocktails[i].price %> Ft</li>
+          <% } else { %>
+            <li class="price grey"><%= cocktails[i].price %> Ft</li>
+          <% } %>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

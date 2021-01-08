@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+  font-family: Raleway;
+  font-weight: bold;
+}
+
+ul {
+  padding: 0px;
+}
+
+.name {
+  padding: 2px;
+}
+
+.contains {
+  font-weight: normal;
+  font-size: 13px;
+  padding: 2px;
+}
+
+.price {
+  height: 18.889px;
+  text-align: center;
+}
+
+#main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#names {
+  margin-right: 5px;
+  width: 400px;
+}
+
+#prices {
+  width: 180px;
+}
+
+.grey {
+  background-color: rgb(224, 223, 223);
+  list-style: none;
+  padding: 24.771px;
+}
+
+.white {
+  background-color: white;
+  list-style: none;
+  padding: 24.771px;
+}
+
+h3 {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+ul.grey {
+  padding: 13px;
+}
+
+ul.white {
+  padding: 13px;
+}
