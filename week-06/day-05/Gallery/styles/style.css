@@ -37,6 +37,7 @@
   box-shadow: 5px 5px 8px 5px #999898;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .actualImage {
@@ -76,4 +77,25 @@
   max-height: 100%;
   overflow: hidden;
   align-self: center;
+}
+
+.textBlock {
+  background-color: rgba(0, 0, 0, 0.623);
+  align-self: flex-end;
+  width: 68%;
+  height: fit-content;
+  text-align: left;
+  position: absolute;
+}
+
+.actualTitle {
+  color: white;
+  padding-left: 2%;
+  font-size: 90%;
+}
+
+.actualDescript {
+  color: #999898;
+  padding-left: 2%;
+  font-size: 80%;
 }

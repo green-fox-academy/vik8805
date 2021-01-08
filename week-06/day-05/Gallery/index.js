@@ -1,6 +1,57 @@
 'use strict';
 
-let gallery = ['clouds', 'clower', 'lake', 'rails', 'sunset', 'travel', 'water', 'waves', 'landscape', 'space',];
+let gallery = [
+  {
+    name: 'clouds',
+    title: 'Clouds',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere nulla. Aliquam bibendum, orci ac mollis efficitur, enim ex rutrum risus, ac laoreet lorem turpis feugiat dolor.',
+  },
+  {
+    name: 'clower',
+    title: 'Clower',
+    description: 'Aliquam purus massa, mattis in augue vel, consequat fermentum erat. Suspendisse nibh nisl, vulputate maximus lorem sit amet, faucibus pellentesque nisi.',
+  },
+  {
+    name: 'lake',
+    title: 'Lake',
+    description: 'Aenean ac mi nibh. Etiam lacus velit, dignissim non lacus tempor, cursus imperdiet turpis.',
+  },
+  {
+    name: 'rails',
+    title: 'Rails',
+    description: 'Duis sit amet felis at arcu consectetur lobortis. Maecenas consectetur rutrum ipsum, at laoreet dui hendrerit nec. Donec eu tristique metus.',
+  },
+  {
+    name: 'sunset',
+    title: 'Sunset',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere nulla. Aliquam bibendum, orci ac mollis efficitur, enim ex rutrum risus, ac laoreet lorem turpis feugiat dolor.',
+  },
+  {
+    name: 'travel',
+    title: 'Travel',
+    description: 'Sed non scelerisque urna, ornare vehicula ligula. Phasellus vehicula commodo vulputate. Curabitur pharetra purus id metus molestie tempor. Phasellus aliquam sed risus id bibendum.',
+  },
+  {
+    name: 'water',
+    title: 'Water',
+    description: 'Donec porta imperdiet venenatis. Aliquam a venenatis magna. Nam suscipit erat sed pulvinar feugiat. Integer consectetur accumsan odio quis lacinia. Aenean dignissim eget ligula in semper.',
+  },
+  {
+    name: 'waves',
+    title: 'Waves',
+    description: 'Vivamus urna est, cursus in felis quis, eleifend cursus enim. Vestibulum vel dapibus ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+  },
+  {
+    name: 'landscape',
+    title: 'Landscape',
+    description: 'Mauris libero arcu, luctus ut cursus nec, tincidunt sed dolor. In laoreet tempor feugiat. Fusce vel urna ullamcorper, imperdiet turpis vitae, gravida diam. Nunc ut efficitur odio.',
+  },
+  {
+    name: 'space',
+    title: 'Space',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere nulla. Aliquam bibendum, orci ac mollis efficitur, enim ex rutrum risus, ac laoreet lorem turpis feugiat dolor.',
+  },
+];
 
 const newBackground = document.createElement('div');
 const body = document.querySelector('body');
@@ -21,7 +72,21 @@ const newActualImage = document.createElement('img');
 const controlPanel = document.querySelector('.controlPanel');
 controlPanel.appendChild(newActualImage);
 newActualImage.classList.add('actualImage');
-newActualImage.setAttribute('src', `images/${gallery[0]}.jpg`);
+newActualImage.setAttribute('src', `images/${gallery[0].name}.jpg`);
+
+const newTextBlock = document.createElement('div');
+controlPanel.appendChild(newTextBlock);
+newTextBlock.classList.add('textBlock');
+
+const newActualTitle = document.createElement('h3');
+const newActualDescript = document.createElement('p');
+const textBlock = document.querySelector('.textBlock');
+textBlock.appendChild(newActualTitle);
+newActualTitle.classList.add('actualTitle');
+newActualTitle.textContent = `${gallery[0].title}`;
+textBlock.appendChild(newActualDescript);
+newActualDescript.classList.add('actualDescript');
+newActualDescript.textContent = `${gallery[0].description}`;
 
 for (let i = 0; i < 2; i++) {
   const newArrowImage = document.createElement('img');
@@ -30,7 +95,7 @@ for (let i = 0; i < 2; i++) {
     newArrowImage.classList.add('arrowLeft');
     newArrowImage.setAttribute('src', 'images/arrow.svg');
   } else {
-    controlPanel.appendChild(newArrowImage);
+    controlPanel.insertBefore(newArrowImage, controlPanel.childNodes[1]);
     newArrowImage.classList.add('arrowRight');
     newArrowImage.setAttribute('src', 'images/arrow.svg');
     newArrowImage.setAttribute('style', 'transform:rotate(180deg);');
@@ -47,20 +112,28 @@ for (let j = 0; j < gallery.length; j++) {
     const imageStore = document.querySelector('.imageStore');
     imageStore.appendChild(newSmallImageBox);
     newSmallImageBox.classList.add(`smallImageBox`);
-    newSmallImageBox.classList.add(`${j}`);
     const newSmallImage = document.createElement('img');
     const smallImageBoxes = document.querySelectorAll(`.smallImageBox`);
     smallImageBoxes[j].appendChild(newSmallImage);
     newSmallImage.classList.add('smallImage');
-    newSmallImage.classList.add(`${j}`);
-    newSmallImage.setAttribute('src', `images/${gallery[j]}.jpg`);
+    newSmallImage.setAttribute('src', `images/${gallery[j].name}.jpg`);
   };
 };
 
 const clickableImage = document.querySelectorAll('.smallImage');
 clickableImage.forEach((value) => {
   value.onclick = () => {
-    const newImageSrc = value.getAttribute('src');
-    newActualImage.setAttribute('src', `${newImageSrc}`);
+    const newName = value.getAttribute('src').slice(7, -4);
+    let newTitle = '';
+    let newDescription = '';
+    for (let k = 0; k < gallery.length; k++) {
+      if (gallery[k].name === newName) {
+        newTitle = gallery[k].title;
+        newDescription = gallery[k].description;
+      }
+    }
+    newActualImage.setAttribute('src', `images/${newName}.jpg`);
+    newActualTitle.textContent = `${newTitle}`;
+    newActualDescript.textContent = `${newDescription}`;
   };
-})
+});
