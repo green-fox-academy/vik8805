@@ -53,5 +53,27 @@
 }
 
 .imageStore {
+  width: 50%;
+  height: 10.028%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
+.smallImageBox {
+  width: 12%;
+  height: 100%;
+  margin-top: 5%;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 5px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.smallImage {
+  max-height: 100%;
+  overflow: hidden;
+  align-self: center;
 }
