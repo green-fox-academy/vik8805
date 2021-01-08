@@ -156,3 +156,63 @@ allSmallImage.forEach((value) => {
     });
   };
 });
+
+const arrowLeft = document.querySelector('.arrowLeft')
+arrowLeft.onclick = () => {
+  actualImageName = actualImage.getAttribute('src').slice(7, -4);
+  allSmallImage.forEach((value, index) => {
+    if (value.getAttribute('src').slice(7, -4) === actualImageName) {
+      const newName = allSmallImage[index - 1].getAttribute('src').slice(7, -4);
+      let newTitle = '';
+      let newDescription = '';
+      let selectedSmallImageBox = document.querySelector('.selectedSmallImageBox');
+      for (let k = 0; k < gallery.length; k++) {
+        if (gallery[k].name === newName) {
+          newTitle = gallery[k].title;
+          newDescription = gallery[k].description;
+        };
+      };
+      actualImage.setAttribute('src', `images/${newName}.jpg`);
+      newActualTitle.textContent = `${newTitle}`;
+      newActualDescript.textContent = `${newDescription}`;
+      allSmallImage.forEach((value) => {
+        if (value.getAttribute('src').slice(7, -4) === actualImageName) {
+          selectedSmallImageBox.classList.remove('selectedSmallImageBox');
+          selectedSmallImageBox.classList.add('smallImageBox');
+          allSmallImage[index - 1].parentElement.classList.remove('smallImageBox');
+          allSmallImage[index - 1].parentElement.classList.add('selectedSmallImageBox');
+        };
+      });
+    };
+  });
+};
+
+const arrowRight = document.querySelector('.arrowRight')
+arrowRight.onclick = () => {
+  actualImageName = actualImage.getAttribute('src').slice(7, -4);
+  allSmallImage.forEach((value, index) => {
+    if (value.getAttribute('src').slice(7, -4) === actualImageName) {
+      const newName = allSmallImage[index + 1].getAttribute('src').slice(7, -4);
+      let newTitle = '';
+      let newDescription = '';
+      let selectedSmallImageBox = document.querySelector('.selectedSmallImageBox');
+      for (let k = 0; k < gallery.length; k++) {
+        if (gallery[k].name === newName) {
+          newTitle = gallery[k].title;
+          newDescription = gallery[k].description;
+        };
+      };
+      actualImage.setAttribute('src', `images/${newName}.jpg`);
+      newActualTitle.textContent = `${newTitle}`;
+      newActualDescript.textContent = `${newDescription}`;
+      allSmallImage.forEach((value) => {
+        if (value.getAttribute('src').slice(7, -4) === actualImageName) {
+          selectedSmallImageBox.classList.remove('selectedSmallImageBox');
+          selectedSmallImageBox.classList.add('smallImageBox');
+          allSmallImage[index + 1].parentElement.classList.remove('smallImageBox');
+          allSmallImage[index + 1].parentElement.classList.add('selectedSmallImageBox');
+        };
+      });
+    };
+  });
+};
