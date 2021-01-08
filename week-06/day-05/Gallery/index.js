@@ -120,20 +120,39 @@ for (let j = 0; j < gallery.length; j++) {
   };
 };
 
-const clickableImage = document.querySelectorAll('.smallImage');
-clickableImage.forEach((value) => {
+const allSmallImage = document.querySelectorAll('.smallImage');
+let actualImage = document.querySelector('.actualImage');
+let actualImageName = actualImage.getAttribute('src').slice(7, -4);
+allSmallImage.forEach((value) => {
+  if (value.getAttribute('src').slice(7, -4) === actualImageName) {
+    value.parentElement.classList.remove('smallImageBox');
+    value.parentElement.classList.add('selectedSmallImageBox');
+  };
+});
+
+allSmallImage.forEach((value) => {
   value.onclick = () => {
     const newName = value.getAttribute('src').slice(7, -4);
     let newTitle = '';
     let newDescription = '';
+    let selectedSmallImageBox = document.querySelector('.selectedSmallImageBox');
     for (let k = 0; k < gallery.length; k++) {
       if (gallery[k].name === newName) {
         newTitle = gallery[k].title;
         newDescription = gallery[k].description;
-      }
-    }
-    newActualImage.setAttribute('src', `images/${newName}.jpg`);
+      };
+    };
+    actualImage.setAttribute('src', `images/${newName}.jpg`);
+    actualImageName = actualImage.getAttribute('src').slice(7, -4);
     newActualTitle.textContent = `${newTitle}`;
     newActualDescript.textContent = `${newDescription}`;
+    allSmallImage.forEach((value) => {
+      if (value.getAttribute('src').slice(7, -4) === actualImageName) {
+        selectedSmallImageBox.classList.remove('selectedSmallImageBox');
+        selectedSmallImageBox.classList.add('smallImageBox');
+        value.parentElement.classList.remove('smallImageBox');
+        value.parentElement.classList.add('selectedSmallImageBox');
+      };
+    });
   };
 });
