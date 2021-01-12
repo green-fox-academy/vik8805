@@ -1,11 +1,13 @@
 'use strict';
 
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
 
 app.use(express.static('assets'));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -65,6 +67,35 @@ app.get('/appenda/:appendable', (req, res) => {
 
 app.get('/appenda', (req, res) => {
   res.sendStatus(404);
+});
+
+app.get('/dountil/:action', (req, res) => {
+  let errorMessage = {
+    error: "Please provide a number!"
+  };
+  res.json(errorMessage);
+});
+
+app.post('/dountil/:action', (req, res) => {
+    let reqAction = req.params.action;
+    let reqUntil = req.body;
+    let untilNumber = Number(reqUntil.until);
+    let resultNumber = 0;
+    if (reqAction === 'sum') {
+      for (let i = 0; i < untilNumber + 1; i++) {
+        resultNumber += i;
+      };  
+    };
+    if (reqAction === 'factor') {
+      resultNumber = 1;
+      for (let j = untilNumber; j > 1; j--) {
+        resultNumber *= j;
+      };
+    };
+    let responseResult = {
+      result: resultNumber
+    };
+    res.json(responseResult);
 });
 
 app.listen(3000);
