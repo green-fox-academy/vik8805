@@ -55,4 +55,16 @@ app.get('/greeter', (req, res) => {
   };
 });
 
+app.get('/appenda/:appendable', (req, res) => {
+  let appendable = req.params.appendable;
+  let respond = {
+    appended: appendable + 'a'
+  };
+  res.json(respond);
+});
+
+app.get('/appenda', (req, res) => {
+  res.sendStatus(404);
+});
+
 app.listen(3000);
