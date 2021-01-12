@@ -9,7 +9,25 @@
   background-size: 100%;
   position: relative;
 }
+/*
+.hiddenGallery {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
 
+.hiddenImage {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+*/
 .main {
   margin: 0;
   padding: 0;
@@ -38,19 +56,24 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  align-content: center;
 }
 
 .actualImage {
-  max-width:85%;
+  width:85%;
+  height: 100%;
   overflow: hidden;
+  order: 1;
 }
 
 .arrowLeft {
   margin-left: 1%;
+  order: 0;
 }
 
 .arrowRight {
   margin-right: 1%;
+  order: 2;
 }
 
 .imageStore {
@@ -117,6 +140,7 @@
   height: fit-content;
   text-align: left;
   position: absolute;
+  order: 3;
 }
 
 .actualTitle {
@@ -125,8 +149,16 @@
   font-size: 90%;
 }
 
+.actualTitle:after {
+  content: attr(textContent);
+}
+
 .actualDescript {
   color: #999898;
   padding-left: 2%;
   font-size: 80%;
+}
+
+.actualDescript:after {
+  content: attr(textContent);
 }

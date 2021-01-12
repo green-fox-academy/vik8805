@@ -53,166 +53,118 @@ let gallery = [
   },
 ];
 
-const newBackground = document.createElement('div');
-const body = document.querySelector('body');
-body.insertBefore(newBackground, body.childNodes[0]);
-newBackground.classList.add('background');
-
-const newMain = document.createElement('div');
-const background = document.querySelector('.background');
-background.appendChild(newMain);
-newMain.classList.add('main');
-
-const newControlPanel = document.createElement('div')
-const main = document.querySelector('.main');
-main.appendChild(newControlPanel);
-newControlPanel.classList.add('controlPanel');
-
-const newActualImage = document.createElement('img');
-const controlPanel = document.querySelector('.controlPanel');
-controlPanel.appendChild(newActualImage);
-newActualImage.classList.add('actualImage');
-newActualImage.setAttribute('src', `images/${gallery[0].name}.jpg`);
-
-const newTextBlock = document.createElement('div');
-controlPanel.appendChild(newTextBlock);
-newTextBlock.classList.add('textBlock');
-
-const newActualTitle = document.createElement('h3');
-const newActualDescript = document.createElement('p');
-const textBlock = document.querySelector('.textBlock');
-textBlock.appendChild(newActualTitle);
-newActualTitle.classList.add('actualTitle');
-newActualTitle.textContent = `${gallery[0].title}`;
-textBlock.appendChild(newActualDescript);
-newActualDescript.classList.add('actualDescript');
-newActualDescript.textContent = `${gallery[0].description}`;
-
-for (let i = 0; i < 2; i++) {
-  const newArrowImage = document.createElement('img');
-  if (i) {
-    controlPanel.insertBefore(newArrowImage, controlPanel.childNodes[0]);
-    newArrowImage.classList.add('arrowLeft');
-    newArrowImage.setAttribute('src', 'images/arrow.svg');
-  } else {
-    controlPanel.insertBefore(newArrowImage, controlPanel.childNodes[1]);
-    newArrowImage.classList.add('arrowRight');
-    newArrowImage.setAttribute('src', 'images/arrow.svg');
-    newArrowImage.setAttribute('style', 'transform:rotate(180deg);');
+function createNewElement(elementTag, elementClass, createInto, setAttribute = {}) {
+  const newElement = document.createElement(`${elementTag}`);
+  createInto.appendChild(newElement);
+  newElement.classList.add(`${elementClass}`);
+  for (let i = 0; i < Object.keys(setAttribute).length; i++) {
+    newElement.setAttribute(`${Object.keys(setAttribute)[i]}`, `${setAttribute[Object.keys(setAttribute)[i]]}`);
   };
 };
 
-const newImageStore = document.createElement('div');
-main.appendChild(newImageStore);
-newImageStore.classList.add('imageStore');
+function changeSelectedSmallImageBox(newSelectedSmallImageBox) {
+  const selectedSmallImageBox = document.querySelector('.selectedSmallImageBox');
+  if (selectedSmallImageBox !== null) {
+    selectedSmallImageBox.classList.remove('selectedSmallImageBox');
+    selectedSmallImageBox.classList.add('smallImageBox');
+  };
+  newSelectedSmallImageBox.classList.remove('smallImageBox');
+  newSelectedSmallImageBox.classList.add('selectedSmallImageBox');
+};
 
+function reloadImageStore(onclickedSmallImageIndexInGallery, indexModifier) {
+  const indexOfFirstImage = onclickedSmallImageIndexInGallery - indexModifier;
+  const imageStore = document.querySelector('.imageStore');
+        while (imageStore.firstChild) {
+          imageStore.removeChild(imageStore.lastChild);
+        };
+  for (let m = 0; m < 8; m++) {
+    createNewElement('div', 'smallImageBox', document.querySelector('.imageStore'));
+    createNewElement('img', 'smallImage', document.querySelectorAll(`.smallImageBox`)[m], {src: `images/${gallery[indexOfFirstImage + m].name}.jpg`, onclick: `onclickSmallImage(this)`});
+  };
+  changeSelectedSmallImageBox(imageStore.childNodes[indexModifier]);
+};
+
+//add background
+createNewElement('div', 'background', document.querySelector('body'));
+
+//add main block
+createNewElement('div', 'main', document.querySelector('.background'));
+
+//add control panel in to main block
+createNewElement('div', 'controlPanel', document.querySelector('.main'));
+
+//add big image in to control panel, start with first image in gallery
+createNewElement('img', 'actualImage', document.querySelector('.controlPanel'), {src: `images/${gallery[0].name}.jpg`});
+
+//add text block in to control panel, with title and description of first image
+createNewElement('div', 'textBlock', document.querySelector('.controlPanel'));
+createNewElement('h3', 'actualTitle', document.querySelector('.textBlock'), {textContent: `${gallery[0].title}`});
+createNewElement('p', 'actualDescript', document.querySelector('.textBlock'), {textContent: `${gallery[0].description}`});
+
+//add right and left arrows, to slide between images
+createNewElement('img', 'arrowLeft', document.querySelector('.controlPanel'), {src: 'images/arrow.svg', onclick: `onclickArrow(${-1})`});
+createNewElement('img', 'arrowRight', document.querySelector('.controlPanel'), {src: 'images/arrow.svg', style: 'transform:rotate(180deg);', onclick: `onclickArrow(${1})`});
+
+//add image store panel, below of control panel
+createNewElement('div', 'imageStore', document.querySelector('.main'));
 for (let j = 0; j < gallery.length; j++) {
   if (j < 8) {
-    const newSmallImageBox = document.createElement('div');
-    const imageStore = document.querySelector('.imageStore');
-    imageStore.appendChild(newSmallImageBox);
-    newSmallImageBox.classList.add(`smallImageBox`);
-    const newSmallImage = document.createElement('img');
-    const smallImageBoxes = document.querySelectorAll(`.smallImageBox`);
-    smallImageBoxes[j].appendChild(newSmallImage);
-    newSmallImage.classList.add('smallImage');
-    newSmallImage.setAttribute('src', `images/${gallery[j].name}.jpg`);
+    if (!j) {
+      createNewElement('div', 'selectedSmallImageBox', document.querySelector('.imageStore'));
+    } else {
+      createNewElement('div', 'smallImageBox', document.querySelector('.imageStore'));
+    };
+    createNewElement('img', 'smallImage', document.querySelectorAll(`.smallImageBox, .selectedSmallImageBox`)[j], {src: `images/${gallery[j].name}.jpg`, onclick: `onclickSmallImage(this)`});
   };
 };
 
-const allSmallImage = document.querySelectorAll('.smallImage');
-let actualImage = document.querySelector('.actualImage');
-let actualImageName = actualImage.getAttribute('src').slice(7, -4);
-allSmallImage.forEach((value) => {
-  if (value.getAttribute('src').slice(7, -4) === actualImageName) {
-    value.parentElement.classList.remove('smallImageBox');
-    value.parentElement.classList.add('selectedSmallImageBox');
-  };
-});
-
-allSmallImage.forEach((value) => {
-  value.onclick = () => {
-    const newName = value.getAttribute('src').slice(7, -4);
-    let newTitle = '';
-    let newDescription = '';
-    let selectedSmallImageBox = document.querySelector('.selectedSmallImageBox');
-    for (let k = 0; k < gallery.length; k++) {
-      if (gallery[k].name === newName) {
-        newTitle = gallery[k].title;
-        newDescription = gallery[k].description;
-      };
+function onclickSmallImage(img) {
+  const actualBigImage = document.querySelector('.actualImage');
+  const onclickedSmallImageName = img.getAttribute('src').slice(7, -4);
+  let onclickedSmallImageIndexInGallery = -1;
+  const allSmallImageBox = document.querySelectorAll('.smallImageBox, .selectedSmallImageBox');
+  let smallImageBoxIndex = -1;
+  for (let k = 0; k < gallery.length; k++) {
+    if (gallery[k].name === onclickedSmallImageName) {
+      onclickedSmallImageIndexInGallery = k;
     };
-    actualImage.setAttribute('src', `images/${newName}.jpg`);
-    actualImageName = actualImage.getAttribute('src').slice(7, -4);
-    newActualTitle.textContent = `${newTitle}`;
-    newActualDescript.textContent = `${newDescription}`;
-    allSmallImage.forEach((value) => {
-      if (value.getAttribute('src').slice(7, -4) === actualImageName) {
-        selectedSmallImageBox.classList.remove('selectedSmallImageBox');
-        selectedSmallImageBox.classList.add('smallImageBox');
-        value.parentElement.classList.remove('smallImageBox');
-        value.parentElement.classList.add('selectedSmallImageBox');
-      };
-    });
   };
-});
-
-const arrowLeft = document.querySelector('.arrowLeft')
-arrowLeft.onclick = () => {
-  actualImageName = actualImage.getAttribute('src').slice(7, -4);
-  allSmallImage.forEach((value, index) => {
-    if (value.getAttribute('src').slice(7, -4) === actualImageName) {
-      const newName = allSmallImage[index - 1].getAttribute('src').slice(7, -4);
-      let newTitle = '';
-      let newDescription = '';
-      let selectedSmallImageBox = document.querySelector('.selectedSmallImageBox');
-      for (let k = 0; k < gallery.length; k++) {
-        if (gallery[k].name === newName) {
-          newTitle = gallery[k].title;
-          newDescription = gallery[k].description;
-        };
-      };
-      actualImage.setAttribute('src', `images/${newName}.jpg`);
-      newActualTitle.textContent = `${newTitle}`;
-      newActualDescript.textContent = `${newDescription}`;
-      allSmallImage.forEach((value) => {
-        if (value.getAttribute('src').slice(7, -4) === actualImageName) {
-          selectedSmallImageBox.classList.remove('selectedSmallImageBox');
-          selectedSmallImageBox.classList.add('smallImageBox');
-          allSmallImage[index - 1].parentElement.classList.remove('smallImageBox');
-          allSmallImage[index - 1].parentElement.classList.add('selectedSmallImageBox');
-        };
-      });
+  actualBigImage.setAttribute('src', `images/${onclickedSmallImageName}.jpg`);
+  document.querySelector('h3').setAttribute('textContent', `${gallery[onclickedSmallImageIndexInGallery].title}`);
+  document.querySelector('p').setAttribute('textContent', `${gallery[onclickedSmallImageIndexInGallery].description}`);
+  allSmallImageBox.forEach((value, index) => {
+    if (value.firstChild === img) {
+      smallImageBoxIndex = index;
     };
   });
+  if (smallImageBoxIndex === 7 && onclickedSmallImageIndexInGallery < gallery.length - 1) {
+    reloadImageStore(onclickedSmallImageIndexInGallery, 6);
+  } else if (smallImageBoxIndex === 0 && onclickedSmallImageIndexInGallery > 0) {
+    reloadImageStore(onclickedSmallImageIndexInGallery, 1);
+  } else {
+    changeSelectedSmallImageBox(img.parentElement);
+  };
 };
 
-const arrowRight = document.querySelector('.arrowRight')
-arrowRight.onclick = () => {
-  actualImageName = actualImage.getAttribute('src').slice(7, -4);
-  allSmallImage.forEach((value, index) => {
-    if (value.getAttribute('src').slice(7, -4) === actualImageName) {
-      const newName = allSmallImage[index + 1].getAttribute('src').slice(7, -4);
-      let newTitle = '';
-      let newDescription = '';
-      let selectedSmallImageBox = document.querySelector('.selectedSmallImageBox');
-      for (let k = 0; k < gallery.length; k++) {
-        if (gallery[k].name === newName) {
-          newTitle = gallery[k].title;
-          newDescription = gallery[k].description;
-        };
-      };
-      actualImage.setAttribute('src', `images/${newName}.jpg`);
-      newActualTitle.textContent = `${newTitle}`;
-      newActualDescript.textContent = `${newDescription}`;
-      allSmallImage.forEach((value) => {
-        if (value.getAttribute('src').slice(7, -4) === actualImageName) {
-          selectedSmallImageBox.classList.remove('selectedSmallImageBox');
-          selectedSmallImageBox.classList.add('smallImageBox');
-          allSmallImage[index + 1].parentElement.classList.remove('smallImageBox');
-          allSmallImage[index + 1].parentElement.classList.add('selectedSmallImageBox');
-        };
-      });
+function onclickArrow(indexModifier) {
+  const selectedSmallImage = document.querySelector('.selectedSmallImageBox').firstChild;
+  const allSmallImageBox = document.querySelectorAll(`.smallImageBox, .selectedSmallImageBox`);
+  let smallImageBoxIndex = -1;
+  allSmallImageBox.forEach((value, index) => {
+    if (value.firstChild === selectedSmallImage) {
+      smallImageBoxIndex = index;
     };
   });
+  if (smallImageBoxIndex === 7 && indexModifier === 1) {
+    reloadImageStore(0, 0);
+    const firstImageInGallery = document.querySelector('.imageStore').firstChild.firstChild;
+    onclickSmallImage(firstImageInGallery);
+  } else if (smallImageBoxIndex === 0 && indexModifier === -1) {
+    reloadImageStore(gallery.length - 1, 7);
+    const lastImageInGallery = document.querySelector('.imageStore').lastChild.firstChild;
+    onclickSmallImage(lastImageInGallery);
+  } else {
+    onclickSmallImage(allSmallImageBox[smallImageBoxIndex + indexModifier].firstChild);
+  };
 };
