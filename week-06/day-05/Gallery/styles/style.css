@@ -98,7 +98,7 @@ body {
   align-self: center;
 }
 
-.selectedSmallImageBox:after {
+.selectedSmallImageBox::after {
 	bottom: 100%;
 	left: 50%;
 	border: solid transparent;
@@ -135,7 +135,7 @@ body {
   font-size: 90%;
 }
 
-.actualTitle:after {
+.actualTitle::after {
   content: attr(textContent);
 }
 
@@ -145,6 +145,6 @@ body {
   font-size: 80%;
 }
 
-.actualDescript:after {
+.actualDescript::after {
   content: attr(textContent);
 }
