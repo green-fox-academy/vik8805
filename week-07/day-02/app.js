@@ -77,8 +77,14 @@ app.get('/dountil/:action', (req, res) => {
 });
 
 app.post('/dountil/:action', (req, res) => {
+  let reqUntil = req.body;
+  if (reqUntil.until === undefined) {
+    let errorMessage = {
+      error: "Please provide a number!"
+    };
+    res.json(errorMessage);
+  } else {
     let reqAction = req.params.action;
-    let reqUntil = req.body;
     let untilNumber = Number(reqUntil.until);
     let resultNumber = 0;
     if (reqAction === 'sum') {
@@ -96,6 +102,7 @@ app.post('/dountil/:action', (req, res) => {
       result: resultNumber
     };
     res.json(responseResult);
+  }
 });
 
 app.listen(3000);
