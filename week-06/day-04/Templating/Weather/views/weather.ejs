@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../static/style.css" />
+  <title>Weather</title>
+</head>
+<body>
+  <div id="main">
+    <% for(let i = 0; i < forecasts.length; i++) { %>
+      <a class="city" href="http://localhost:3000/cities/<%=cityId%>">
+        <h3><%= forecasts[i].city %></h3>
+        <p><%= forecasts[i].location %></p>
+        <h1><%= forecasts[i].weather[0].temp %>°C</h1>
+        <img src="../static/<%= forecasts[i].weather[0].icon %>.png">
+      </a>
+    <% }; %>
+  </div>
+</body>
+</html>
