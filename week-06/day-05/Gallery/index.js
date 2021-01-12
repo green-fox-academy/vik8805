@@ -85,40 +85,6 @@ function reloadImageStore(onclickedSmallImageIndexInGallery, indexModifier) {
   changeSelectedSmallImageBox(imageStore.childNodes[indexModifier]);
 };
 
-//add background
-createNewElement('div', 'background', document.querySelector('body'));
-
-//add main block
-createNewElement('div', 'main', document.querySelector('.background'));
-
-//add control panel in to main block
-createNewElement('div', 'controlPanel', document.querySelector('.main'));
-
-//add big image in to control panel, start with first image in gallery
-createNewElement('img', 'actualImage', document.querySelector('.controlPanel'), {src: `images/${gallery[0].name}.jpg`});
-
-//add text block in to control panel, with title and description of first image
-createNewElement('div', 'textBlock', document.querySelector('.controlPanel'));
-createNewElement('h3', 'actualTitle', document.querySelector('.textBlock'), {textContent: `${gallery[0].title}`});
-createNewElement('p', 'actualDescript', document.querySelector('.textBlock'), {textContent: `${gallery[0].description}`});
-
-//add right and left arrows, to slide between images
-createNewElement('img', 'arrowLeft', document.querySelector('.controlPanel'), {src: 'images/arrow.svg', onclick: `onclickArrow(${-1})`});
-createNewElement('img', 'arrowRight', document.querySelector('.controlPanel'), {src: 'images/arrow.svg', style: 'transform:rotate(180deg);', onclick: `onclickArrow(${1})`});
-
-//add image store panel, below of control panel
-createNewElement('div', 'imageStore', document.querySelector('.main'));
-for (let j = 0; j < gallery.length; j++) {
-  if (j < 8) {
-    if (!j) {
-      createNewElement('div', 'selectedSmallImageBox', document.querySelector('.imageStore'));
-    } else {
-      createNewElement('div', 'smallImageBox', document.querySelector('.imageStore'));
-    };
-    createNewElement('img', 'smallImage', document.querySelectorAll(`.smallImageBox, .selectedSmallImageBox`)[j], {src: `images/${gallery[j].name}.jpg`, onclick: `onclickSmallImage(this)`});
-  };
-};
-
 function onclickSmallImage(img) {
   const actualBigImage = document.querySelector('.actualImage');
   const onclickedSmallImageName = img.getAttribute('src').slice(7, -4);
@@ -166,5 +132,32 @@ function onclickArrow(indexModifier) {
     onclickSmallImage(lastImageInGallery);
   } else {
     onclickSmallImage(allSmallImageBox[smallImageBoxIndex + indexModifier].firstChild);
+  };
+};
+
+createNewElement('div', 'background', document.querySelector('body'));
+
+createNewElement('div', 'main', document.querySelector('.background'));
+
+createNewElement('div', 'controlPanel', document.querySelector('.main'));
+
+createNewElement('img', 'actualImage', document.querySelector('.controlPanel'), {src: `images/${gallery[0].name}.jpg`});
+
+createNewElement('div', 'textBlock', document.querySelector('.controlPanel'));
+createNewElement('h3', 'actualTitle', document.querySelector('.textBlock'), {textContent: `${gallery[0].title}`});
+createNewElement('p', 'actualDescript', document.querySelector('.textBlock'), {textContent: `${gallery[0].description}`});
+
+createNewElement('img', 'arrowLeft', document.querySelector('.controlPanel'), {src: 'images/arrow.svg', onclick: `onclickArrow(${-1})`});
+createNewElement('img', 'arrowRight', document.querySelector('.controlPanel'), {src: 'images/arrow.svg', style: 'transform:rotate(180deg);', onclick: `onclickArrow(${1})`});
+
+createNewElement('div', 'imageStore', document.querySelector('.main'));
+for (let j = 0; j < gallery.length; j++) {
+  if (j < 8) {
+    if (!j) {
+      createNewElement('div', 'selectedSmallImageBox', document.querySelector('.imageStore'));
+    } else {
+      createNewElement('div', 'smallImageBox', document.querySelector('.imageStore'));
+    };
+    createNewElement('img', 'smallImage', document.querySelectorAll(`.smallImageBox, .selectedSmallImageBox`)[j], {src: `images/${gallery[j].name}.jpg`, onclick: `onclickSmallImage(this)`});
   };
 };
