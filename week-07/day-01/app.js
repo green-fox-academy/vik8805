@@ -17,7 +17,7 @@ app.get('/doubling', (req, res) => {
     let errorMessage = {
       error: "Please provide an input!"
     };
-    res.status(200).json(errorMessage);
+    res.json(errorMessage);
   } else {
     let result = received * 2;
     let doublingResponse = {
@@ -25,6 +25,33 @@ app.get('/doubling', (req, res) => {
       result: result,
     };
     res.json(doublingResponse);
+  };
+});
+
+app.get('/greeter', (req, res) => {
+  if (req.query.name === undefined || req.query.title === undefined) {
+    let errorMessage = {};
+    if (req.query.name === undefined && req.query.title === undefined) {
+      errorMessage = {
+        error: "Please provide a name and a title!"
+      };
+    } else if (req.query.name === undefined) {
+      errorMessage = {
+        error: "Please provide a name!"
+      };
+    } else {
+      errorMessage = {
+        error: "Please provide a title!"
+      };
+    };  
+    res.status(400).json(errorMessage);
+  } else {
+    let name = req.query.name;
+    let title =  req.query.title;
+    let greeting = {
+      welcome_message: `Oh, hi there ${name}, my dear ${title}!`
+    };
+    res.json(greeting);
   };
 });
 
