@@ -26,10 +26,9 @@
 
       // 4: Create a timer function that refreshes the background every 5 seconds
       function switcher() {
-        document.querySelector('body').style.backgroundImage = "url('https://loremflickr.com/g/1280/800/hungary/')";
+        document.querySelector('body').style.backgroundImage = `url('https://loremflickr.com/g/1280/800/hungary/?${Math.random()*10000000000000000}')`;
       };
-      switcher();
-      //type="text/javascript" language="JavaScript">ord=Math.random()*10000000000000000;
+      setInterval(() => {switcher();}, 5000);
     </script>
   </body>
 </html>
