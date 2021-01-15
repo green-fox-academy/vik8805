@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore | Books</title>
+</head>
+<body>
+  <h1>All datas of those books we have in store</h1>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Publisher</th>
+      <th>Price</th>
+    </tr>
+    <% for(let i = 0; i < books.length; i++) { %>
+      <tr>
+        <% for(let j = 0; j < books[i].length; j++) { %>
+          <% if (j === 4) { %>
+            <th>$ <%= books[i][j] %>,-</th>
+          <% } else { %>
+            <th><%= books[i][j] %></th>
+          <% }; %>
+        <% }; %>
+      </tr>
+    <% }; %>
+  </table>
+</body>
+</html>
