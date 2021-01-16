@@ -26,13 +26,42 @@ app.get('/hello', (req, res) => {
 });
 
 app.get('/posts', (req, res) => {
-  conn.query('SELECT * FROM posts', (err, rows) => {
+  let query = `SELECT * FROM posts${seFilterById(req.query['id'])};`;
+  conn.query(query, (err, rows) => {
     if (err) {
       res.status(500).json(err);
       return;
     };
-    res.status(200).json(rows);
+    let response;
+    if (rows.length > 1) {
+      response = {
+        posts: rows,
+      };
+    } else {
+      response = rows[0];
+    };
+    res.status(200).json(response);
   });
 });
+
+app.post('/posts', (req, res) => {
+  let query = 'INSERT INTO posts (title, url) VALUES (?, ?);';
+  conn.query(query, [req.body.title, req.body.url],  (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    };
+    let addedPostId = rows['insertId'];
+    res.redirect(`/posts?id=${addedPostId}`);
+  });
+});
+
+function seFilterById(id) {
+  let filter = '';
+  if (id !== undefined) {
+    filter = ` WHERE id = ${id}`;
+  };
+  return filter;
+};
 
 app.listen(3000);
