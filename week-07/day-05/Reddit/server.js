@@ -32,15 +32,7 @@ app.get('/posts', (req, res) => {
       res.status(500).json(err);
       return;
     };
-    let response;
-    if (rows.length > 1) {
-      response = {
-        posts: rows,
-      };
-    } else {
-      response = rows[0];
-    };
-    res.status(200).json(response);
+    res.status(200).json(setResponse(rows));
   });
 });
 
@@ -56,12 +48,48 @@ app.post('/posts', (req, res) => {
   });
 });
 
+app.put('/posts/:id/upvote', (req, res) => {
+  let query = 'UPDATE posts SET score = score + 1 WHERE id = ?;';
+  conn.query(query, [req.params.id], (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    };
+    let updatedPostId = req.params.id;
+    res.redirect(`/posts?id=${updatedPostId}`);
+  });
+});
+
+app.put('/posts/:id/downvote', (req, res) => {
+  let query = 'UPDATE posts SET score = score - 1 WHERE id = ?;';
+  conn.query(query, [req.params.id], (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    };
+    let updatedPostId = req.params.id;
+    res.redirect(`/posts?id=${updatedPostId}`);
+  });
+});
+
 function seFilterById(id) {
   let filter = '';
   if (id !== undefined) {
     filter = ` WHERE id = ${id}`;
   };
   return filter;
+};
+
+function setResponse(rows) {
+  let response;
+  if (rows.length > 1) {
+    response = {
+      posts: rows,
+    };
+  } else {
+    response = rows[0];
+  };
+  return response;
 };
 
 app.listen(3000);
