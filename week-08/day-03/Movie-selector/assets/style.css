@@ -1,0 +1,93 @@
+body, html {
+  height: 700px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  background-color: rgb(243, 191, 191);
+  box-shadow: 20px 20px 0px 0px rgb(147, 154, 223);
+  width: 400px;
+  border-radius: 8px;
+  padding: 50px 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#movieSelector {
+  background-color: white;
+  width: 180px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+}
+
+#genreSelector {
+  background-color: white;
+  width: 180px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+}
+
+#genre {
+	-webkit-appearance:none;
+	background:url('./double-arrow.png');
+	background-repeat:no-repeat;
+	background-size:10px 13px;
+	background-position:right 2px;
+}
+
+#movie {
+	-webkit-appearance:none;
+	background:url('./double-arrow.png');
+	background-repeat:no-repeat;
+	background-size:10px 13px;
+	background-position:right 2px;
+}
+
+select {
+  border: hidden;
+  font-weight: bold;
+  font-size: 14px;
+  width: 70px
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+#selectionPanel {
+  display: flex;
+  flex-direction: row;
+}
+
+p {
+  margin: 15px 15px 15px 0px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#selectedMovie {
+  color: rgb(147, 154, 223);
+}
+
+#selectors {
+  display: flex;
+  flex-direction: row;
+}
