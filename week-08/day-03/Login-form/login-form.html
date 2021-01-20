@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./assets/style.css">
+  <title>Login Form</title>
+</head>
+<body>
+  <form id="formContainer">
+    <div class="formBlock">
+      <p>ACCOUNT LOGIN</p>
+    </div>
+    <div class="formBlock">
+      <label for="username">
+        USERNAME
+      </label>
+      <input type="text" name="username" id="username" required>
+    </div>
+    <div class="formBlock">
+      <label for="password">
+        PASSWORD
+      </label>
+      <input type="password" name="password" id="password" required>
+      <i class="far fa-eye" id="togglePassword"></i>
+      <a href="http://" id="forgot">Forgot Password?</a>
+    </div>
+    <div class="formBlock">
+      <button type="submit">
+        Login
+      </button>
+    </div>
+  </form>
+</body>
+<script>
+  const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+  togglePassword.addEventListener('click', (event) => {
+    const type = password.getAttribute('type');
+    if (type === 'password') {
+      password.setAttribute('type', 'text');
+    } else {
+      password.setAttribute('type', 'password');
+    };
+    togglePassword.classList.toggle('fa-eye-slash');
+  });
+</script>
+</html>

@@ -1,0 +1,88 @@
+body {
+  font-family: lato;
+  color: gray;
+  background-color: rgb(224, 224, 224);
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#formContainer {
+  position: relative;
+  background-color: white;
+  width: 350px;
+  height: 410px;
+  padding: 0px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+#togglePassword {
+  font-size: 12px;
+  position: absolute;
+  right: 70px;
+  top: 238px;
+  cursor: pointer;
+}
+
+label {
+  font-size: 10px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+p {
+  margin: 0;
+  font-size: 25px;
+}
+
+input {
+  border: 1px solid rgb(192, 189, 189);
+  border-radius: 3px;
+  height: 40px;
+  outline: none;
+}
+
+input:focus {
+  border: 1px solid rgb(13, 207, 13);
+}
+
+#forgot {
+  padding-top: 10px;
+  font-size: 10px;
+  align-self: flex-end;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+button {
+  align-self: flex-start;
+  width: 140px;
+	background:linear-gradient(to bottom, #000000 5%, #000000 100%);
+	background-color:#000000;
+	border-radius:26px;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	padding:16px 0px;
+}
+button:hover {
+	background:linear-gradient(to bottom, #000000 5%, #000000 100%);
+	background-color:#000000;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
