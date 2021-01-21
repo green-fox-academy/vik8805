@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <title>Newsletter</title>
+</head>
+<body>
+  <form id="nlform" action="http://localhost:3000/signup" method="POST">
+    <h1>Subscribe to our newsletter</h1>
+    <label for="username">Full name</label>
+    <input type="text" name="username" id="username" placeholder="name" required>
+    <label for="email">Email adress</label>
+    <input type="email" name="email" id="email" placeholder="email" required>
+    <button id="signUp" type="submit">Sign up!</button>
+  </form>
+</body>
+<script src="./assets/newsletter.js"></script>
+</html>
