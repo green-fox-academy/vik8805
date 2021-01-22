@@ -1,0 +1,53 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body, html {
+  width: 100%;
+}
+
+.container {
+  display: grid;
+  background-color: rgb(0, 0, 0);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 90px;
+  column-gap: 6px;
+  row-gap: 6px;
+}
+
+.one {
+  background-color: rgb(223, 97, 223);
+  grid-column: 1 / 2;
+}
+
+.green {
+  background-color: rgb(23, 219, 23);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.yellow {
+  background-color: rgb(255, 238, 0);
+  width: 70%;
+  height: 65%;
+}
+
+.two {
+  background-color: rgb(223, 97, 223);
+}
+
+.three {
+  background-color: rgb(223, 97, 223);
+}
+
+.four {
+  background-color: rgb(223, 97, 223);
+}
+
+.five {
+  background-color: rgb(223, 97, 223);
+}
