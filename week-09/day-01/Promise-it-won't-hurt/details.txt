@@ -1,0 +1,11 @@
+In this exercise you should install an npm package named promise-it-wont-hurt. 
+You will learn the ins and outs of promises including error handling, 
+value propagation, synchronous returns, and composition with this tool.
+
+  * mkdir promise && cd promise
+  * npm init
+  * npm install -g promise-it-wont-hurt
+
+  - To select an exercise, run 'npx promise-it-wont-hurt' and choose the task you want to work on.
+  - To test your solution, run 'npx promise-it-wont-hurt run mysolution.js'.
+  - To verify your solution, run 'npx promise-it-wont-hurt verify mysolution.js'. It will mark your exercise complete.
