@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 190px;
+}
+
+.item {
+  width: auto;
+}
+
+.green {
+  background-color: rgb(17, 230, 9);
+  flex-grow: 1;
+}
+
+.yellow {
+  background-color: rgb(255, 208, 0);
+  flex-grow: 2;
+}
+
+.purple {
+  background-color: rgb(196, 4, 196);
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    height: 570px;
+  }
+  .yellow {
+    flex-grow: 1;
+  }
+}
