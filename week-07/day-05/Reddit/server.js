@@ -8,7 +8,7 @@ const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '1988',
-  database: 'reddit',
+  database: 'redditdb',
   insecureAuth: 'true',
 });
 
@@ -26,7 +26,7 @@ app.get('/hello', (req, res) => {
 });
 
 app.get('/posts', (req, res) => {
-  let query = `SELECT * FROM posts${seFilterById(req.query['id'])};`;
+  let query = `SELECT * FROM posts${setFilterById(req.query['id'])};`;
   conn.query(query, (err, rows) => {
     if (err) {
       res.status(500).json(err);
@@ -72,7 +72,39 @@ app.put('/posts/:id/downvote', (req, res) => {
   });
 });
 
-function seFilterById(id) {
+app.delete('/posts/:id', (req, res) => {
+  let deletedPostId = req.params.id;
+  let query = `SELECT * FROM posts${setFilterById(deletedPostId)};`;
+  conn.query(query, (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    };
+    let response = setResponse(rows);
+    query = 'DELETE FROM posts WHERE id = ?;';
+    conn.query(query, [req.params.id], (err, rows) => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      };
+      res.status(200).json(response);
+    });
+  });
+});
+
+app.put('/posts/:id', (req, res) => {
+  let query = 'UPDATE posts SET title = ?, url = ? WHERE id = ?;';
+  conn.query(query, [req.body.title, req.body.url, req.params.id], (err, rows) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    };
+    let updatedPostId = req.params.id;
+    res.redirect(`/posts?id=${updatedPostId}`);
+  });
+});
+
+function setFilterById(id) {
   let filter = '';
   if (id !== undefined) {
     filter = ` WHERE id = ${id}`;
