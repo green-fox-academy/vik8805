@@ -48,20 +48,12 @@ app.post('/posts', (req, res) => {
   });
 });
 
-app.put('/posts/:id/upvote', (req, res) => {
-  let query = 'UPDATE posts SET score = score + 1 WHERE id = ?;';
-  conn.query(query, [req.params.id], (err, rows) => {
-    if (err) {
-      res.status(500).json(err);
-      return;
-    };
-    let updatedPostId = req.params.id;
-    res.redirect(`/posts?id=${updatedPostId}`);
-  });
-});
-
-app.put('/posts/:id/downvote', (req, res) => {
-  let query = 'UPDATE posts SET score = score - 1 WHERE id = ?;';
+app.put('/posts/:id/:vote', (req, res) => {
+  let scoreModifier = 1;
+  if (req.params.vote === 'downvote') {
+    scoreModifier = -1;
+  };
+  let query = `UPDATE posts SET score = score + ${scoreModifier} WHERE id = ?;`;
   conn.query(query, [req.params.id], (err, rows) => {
     if (err) {
       res.status(500).json(err);
