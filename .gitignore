@@ -109,6 +109,10 @@ tsconfig.js
 
 /week-03/day-04/myownpirates/
 
+/week-09/day-01/Promise
+
+/week-09/day-01/Fetch
+
 /test/
 
 package-lock.json
