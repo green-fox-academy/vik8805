@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+}
+
+nav {
+  min-height: 200px;
+  background-image: url(./banner.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+main {
+  background-color: blueviolet;
+}
+
+aside {
+  background-color: chartreuse;
+}
