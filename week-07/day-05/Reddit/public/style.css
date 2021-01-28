@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
@@ -8,11 +9,27 @@ body {
 }
 
 nav {
-  min-height: 200px;
+  min-height: 250px;
   background-image: url(./banner.jpg);
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
+  color: white;
+  display: flex;
+}
+
+h1 {
+  margin: auto;
+  align-self: center;
+  font-size: 3.5vw;
+  font-weight: normal;
+  letter-spacing: 0.8em;
+}
+
+img {
+  width: 80px;
+  margin: 70px;
+  position: absolute;
 }
 
 main {
