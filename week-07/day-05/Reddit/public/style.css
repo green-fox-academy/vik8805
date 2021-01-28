@@ -14,11 +14,11 @@ nav {
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
-  color: white;
+  color: rgb(221, 221, 221);
   display: flex;
 }
 
-h1 {
+#spaceHeader {
   margin: auto;
   align-self: center;
   font-size: 3.5vw;
@@ -28,14 +28,81 @@ h1 {
 
 img {
   width: 80px;
-  margin: 70px;
+  margin: 70px 50px;
   position: absolute;
 }
 
+#container {
+  height: fit-content;
+  background-color: rgb(221, 221, 221);
+  display: flex;
+}
+
 main {
-  background-color: blueviolet;
+  width: 100%;
+  margin: 25px 7.5px 15px 15px;
+  background-color: rgb(255, 255, 255);
 }
 
 aside {
-  background-color: chartreuse;
+  width: 450px;
+  height: fit-content;
+  margin: 25px 15px 15px 7.5px;
+  background-color: rgb(221, 221, 221);
+}
+
+#newPost {
+  background-color: rgb(62, 141, 214);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+#about {
+  margin-top: 15px;
+  background-color: white;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+#aboutTop {
+  margin: 15px;
+}
+
+#aboutHeader {
+  font-size: 15px;
+  font-family: sans-serif;
+  display: inline-block;
+}
+
+#aboutLink {
+  font-family: sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  color: rgb(62, 141, 214);
+}
+
+#aboutBottom {
+  display: flex;
+  flex-direction: column;
+}
+
+#aboutParagraph {
+  margin-top: 20px;
+  font-size: 14px;
+  align-self: center;
+}
+
+#aboutList {
+  margin: 20px 40px;
 }
