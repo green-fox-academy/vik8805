@@ -6,11 +6,13 @@
 
 body {
   width: 100%;
+  min-width: 400px;
 }
 
 nav {
-  min-height: 250px;
-  background-image: url(./banner.jpg);
+  height: 40vh;
+  min-height: 150px;
+  background-image: url(./images/banner.jpg);
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -28,7 +30,7 @@ nav {
 
 img {
   width: 80px;
-  margin: 70px 50px;
+  margin: 11vh 6vh;
   position: absolute;
 }
 
@@ -40,8 +42,92 @@ img {
 
 main {
   width: 100%;
+  height: fit-content;
   margin: 25px 7.5px 15px 15px;
+  background-color: rgb(221, 221, 221);
+  display: flex;
+  flex-direction: column;
+}
+
+.postBlock {
+  display: flex;
+  flex-direction: row;
+  margin: 1px;
+  padding: 10px 10px 10px 0;
   background-color: rgb(255, 255, 255);
+}
+
+.voteBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+.upArrow {
+  background-image: url(./images/upvote.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+}
+
+.postScore {
+  margin: 5px;
+  text-align: center;
+  color: rgb(221, 221, 221);
+  font-family: sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.downArrow {
+  background-image: url(./images/downvote.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+}
+
+.descriptBlock {
+  padding-left: 5px;
+}
+
+.postTitle {
+  padding: 0 0 5px 0;
+  font-size: 20px;
+  color: rgb(68, 68, 68);
+  font-weight: bold;
+}
+
+.postTimestamp {
+  padding: 5px 0 5px 0;
+  font-size: 13px;
+  color: rgb(141, 141, 141);
+  font-weight: bold;
+}
+
+.postModifyLink {
+  display: inline-block;
+  padding: 5px 5px 0 0;
+  font-size: 15px;
+  font-family: sans-serif;
+  letter-spacing: 0.2em;
+  color: rgba(12, 148, 0, 0.473);
+  font-weight: bold;
+}
+
+.postRemoveLink {
+  display: inline-block;
+  padding: 5px 0 0 5px;
+  font-size: 15px;
+  font-family: sans-serif;
+  letter-spacing: 0.2em;
+  color: rgba(194, 2, 2, 0.534);
+  font-weight: bold;
 }
 
 aside {
@@ -105,4 +191,41 @@ aside {
 
 #aboutList {
   margin: 20px 40px;
+}
+
+@media screen and (max-width: 600px) {
+  #container {
+    flex-direction: column-reverse;
+  }
+
+  main {
+    width: 95%;
+    margin: 15px auto 15px auto;
+  }
+
+  aside {
+    width: 95%;
+    margin: 15px auto 15px auto;
+  }
+
+  .postBlock {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .voteBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+  }
+
+  .upArrow {
+    margin-right: 5px;
+  }
+  
+  .downArrow {
+    margin-left: 5px;
+  }
 }

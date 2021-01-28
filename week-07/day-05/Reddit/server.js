@@ -20,6 +20,7 @@ conn.connect((err) => {
 });
 
 app.use(express.json());
+app.use(express.static('public'));
 
 app.get('/hello', (req, res) => {
   res.send('hello world');
