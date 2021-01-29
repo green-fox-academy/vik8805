@@ -54,6 +54,27 @@ function voteOnPost(voteValue, postId) {
   })
 };
 
+function removePost(postId) {
+  fetch(`/posts/${postId}`, {
+    method: 'DELETE',
+  })
+  .then(response => {
+    if(response.status != 200) {
+      throw new Error('Something bad happend!')
+    }
+    return response;
+  })
+  .then(response =>
+    response.json()
+  )
+  .then((response) => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log(error.message);
+  })
+};
+
 function refreshScore(newScore, id) {
   const scoreToChange = document.getElementById(`${id}`).firstChild.children[1];
   scoreToChange.innerHTML = newScore;
