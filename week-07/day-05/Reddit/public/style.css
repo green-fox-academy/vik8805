@@ -193,6 +193,59 @@ aside {
   margin: 20px 40px;
 }
 
+/* Add new post HTML elements */
+
+#submitPost {
+  background-color: rgb(221, 221, 221);
+  width: 475px;
+  display: flex;
+  flex-direction: column;
+}
+
+#inputFields {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+#redStar {
+  color: red;
+  display: inline-block;
+}
+
+label {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+input {
+  height: 30px;
+  border-style: none;
+  background-color: rgb(238, 238, 238);
+  margin-bottom: 10px;
+}
+
+/*
+span {
+  min-height: 30px;
+  max-height: fit-content;
+  border-style: none;
+  background-color: rgb(238, 238, 238);
+  margin-bottom: 10px;
+}
+*/
+
+button {
+  background-color: rgb(62, 141, 214);
+  color: white;
+  font-weight: bold;
+  height: 40px;
+  width: 237.5px;
+  border-style: none;
+  margin-top: 15px;
+}
+
 @media screen and (max-width: 600px) {
   #container {
     flex-direction: column-reverse;
@@ -200,12 +253,12 @@ aside {
 
   main {
     width: 95%;
-    margin: 15px auto 15px auto;
+    margin: 15px auto;
   }
 
   aside {
     width: 95%;
-    margin: 15px auto 15px auto;
+    margin: 15px auto;
   }
 
   .postBlock {
@@ -227,5 +280,9 @@ aside {
   
   .downArrow {
     margin-left: 5px;
+  }
+
+  #submitPost {
+    width: 100%;
   }
 }

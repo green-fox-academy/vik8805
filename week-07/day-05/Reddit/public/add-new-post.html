@@ -14,11 +14,19 @@
     <h1 id="spaceHeader" >S P A C E</h1>
   </nav>
   <div id="container">
-    <main></main>
+    <main>
+      <form id="submitPost" action="">
+        <div id="inputFields">
+          <label for="title"><p id="redStar">*</p>title</label>
+          <input type="text" name="title" id="" required>
+          <!-- <span class="input" role="textbox" type="text" contenteditable required></span> -->
+          <label for="url">URL</label>
+          <input type="url" name="url" id="" required>
+        </div>
+        <button type="submit">SUBMIT</button>
+      </form>
+    </main>
     <aside>
-      <div id="newPost">
-        <a id="submit" href="./add-new-post.html">SUBMIT A NEW POST</a>
-      </div>
       <div id="about">
         <div id="aboutTop" >
           <h1 id="aboutHeader" >ABOUT</h1>
@@ -38,7 +46,5 @@
     </aside>
   </div>
 </body>
-<script src="./index.js"></script>
-<script src="./index-events.js"></script>
-<script src="./timestamp-converter.js"></script>
+<script src="./add-new-post.js"></script>
 </html>

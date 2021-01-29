@@ -3,6 +3,9 @@
 function getPosts() {
   fetch('/posts', {
     method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
   })
   .then(response => {
     if(response.status != 200) {
@@ -52,7 +55,7 @@ function voteOnPost(voteValue, postId) {
 };
 
 function refreshScore(newScore, id) {
-  const scoreToChange = document.getElementById(`${id}`).children[1];
+  const scoreToChange = document.getElementById(`${id}`).firstChild.children[1];
   scoreToChange.innerHTML = newScore;
 };
 
@@ -79,7 +82,7 @@ function loadPostOnPage(post) {
   newPostTitle.innerHTML = post.title;
   newDescriptBlock.appendChild(newPostTitle)
   newPostTimestamp.setAttribute('class', 'postTimestamp')
-  newPostTimestamp.innerHTML = post.timestamp;
+  newPostTimestamp.innerHTML = humanized_time_span(post.timestamp);
   newDescriptBlock.appendChild(newPostTimestamp)
   newPostModifyLink.setAttribute('class', 'postModifyLink')
   newPostModifyLink.innerHTML = 'Modify';
@@ -87,11 +90,11 @@ function loadPostOnPage(post) {
   newPostRemoveLink.setAttribute('class', 'postRemoveLink')
   newPostRemoveLink.innerHTML = 'Remove';
   newDescriptBlock.appendChild(newPostRemoveLink)
-  newVoteBlock.setAttribute('id', `${post.id}`);
   newVoteBlock.setAttribute('class', 'voteBlock');
   newPostBlock.appendChild(newVoteBlock);
   newDescriptBlock.setAttribute('class', 'descriptBlock');
   newPostBlock.appendChild(newDescriptBlock);
+  newPostBlock.setAttribute('id', `${post.id}`);
   newPostBlock.setAttribute('class', 'postBlock');
   mainBlock.appendChild(newPostBlock);
 };
