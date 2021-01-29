@@ -65,7 +65,7 @@ main {
   width: 100px;
 }
 
-.upArrow {
+.up.Arrow {
   background-image: url(./images/upvote.png);
   background-size:cover;
   background-repeat: no-repeat;
@@ -83,7 +83,7 @@ main {
   font-size: 20px;
 }
 
-.downArrow {
+.down.Arrow {
   background-image: url(./images/downvote.png);
   background-size:cover;
   background-repeat: no-repeat;

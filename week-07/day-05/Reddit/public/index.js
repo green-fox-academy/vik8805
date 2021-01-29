@@ -24,6 +24,38 @@ function getPosts() {
   })
 };
 
+function voteOnPost(voteValue, postId) {
+  let endpoint = '';
+  if (voteValue === 'upvote') {
+    endpoint = `/posts/${postId}/upvote`;
+  } else if (voteValue === 'downvote') {
+    endpoint = `/posts/${postId}/downvote`;
+  };
+  fetch(endpoint, {
+    method: 'PUT',
+  })
+  .then(response => {
+    if(response.status != 200) {
+      throw new Error('Something bad happend!')
+    }
+    return response;
+  })
+  .then(response =>
+    response.json()
+  )
+  .then((response) => {
+    refreshScore(response.score, response.id);
+  })
+  .catch(error => {
+    console.log(error.message);
+  })
+};
+
+function refreshScore(newScore, id) {
+  const scoreToChange = document.getElementById(`${id}`).children[1];
+  scoreToChange.innerHTML = newScore;
+};
+
 function loadPostOnPage(post) {
   const mainBlock = document.querySelector('main');
   const newPostBlock = document.createElement('div');
@@ -36,12 +68,12 @@ function loadPostOnPage(post) {
   const newPostTimestamp = document.createElement('p');
   const newPostModifyLink = document.createElement('a');
   const newPostRemoveLink = document.createElement('a');
-  newUpArrow.setAttribute('class', 'upArrow');
+  newUpArrow.setAttribute('class', 'up Arrow');
   newVoteBlock.appendChild(newUpArrow);
   newPostScore.setAttribute('class', 'postScore');
   newPostScore.innerHTML = post.score;
   newVoteBlock.appendChild(newPostScore);
-  newDownArrow.setAttribute('class', 'downArrow');
+  newDownArrow.setAttribute('class', 'down Arrow');
   newVoteBlock.appendChild(newDownArrow);
   newPostTitle.setAttribute('class', 'postTitle')
   newPostTitle.innerHTML = post.title;
@@ -55,6 +87,7 @@ function loadPostOnPage(post) {
   newPostRemoveLink.setAttribute('class', 'postRemoveLink')
   newPostRemoveLink.innerHTML = 'Remove';
   newDescriptBlock.appendChild(newPostRemoveLink)
+  newVoteBlock.setAttribute('id', `${post.id}`);
   newVoteBlock.setAttribute('class', 'voteBlock');
   newPostBlock.appendChild(newVoteBlock);
   newDescriptBlock.setAttribute('class', 'descriptBlock');

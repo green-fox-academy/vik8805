@@ -45,7 +45,15 @@ app.post('/posts', (req, res) => {
       return;
     };
     let addedPostId = rows['insertId'];
-    res.redirect(`/posts?id=${addedPostId}`);
+    //res.redirect(`/posts?id=${addedPostId}`);
+    query = `SELECT * FROM posts${setFilterById(addedPostId)};`;
+    conn.query(query, (err, rows) => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      };
+      res.status(200).json(setResponse(rows)); 
+    });
   });
 });
 
@@ -61,9 +69,18 @@ app.put('/posts/:id/:vote', (req, res) => {
       return;
     };
     let updatedPostId = req.params.id;
-    res.redirect(`/posts?id=${updatedPostId}`);
+    //res.redirect(`/posts?id=${updatedPostId}`);
+    query = `SELECT * FROM posts${setFilterById(updatedPostId)};`;
+    conn.query(query, (err, rows) => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      };
+      res.status(200).json(setResponse(rows)); 
+    });
   });
 });
+
 
 app.delete('/posts/:id', (req, res) => {
   let deletedPostId = req.params.id;
@@ -93,7 +110,15 @@ app.put('/posts/:id', (req, res) => {
       return;
     };
     let updatedPostId = req.params.id;
-    res.redirect(`/posts?id=${updatedPostId}`);
+    //res.redirect(`/posts?id=${updatedPostId}`);
+    query = `SELECT * FROM posts${setFilterById(updatedPostId)};`;
+    conn.query(query, (err, rows) => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      };
+      res.status(200).json(setResponse(rows)); 
+    });
   });
 });
 
