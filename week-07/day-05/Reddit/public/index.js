@@ -119,3 +119,15 @@ function loadPostOnPage(post) {
   newPostBlock.setAttribute('class', 'postBlock');
   mainBlock.appendChild(newPostBlock);
 };
+/*
+  createPostElement('div', document.querySelector('main'), {id: `${post.id}`, class: 'postBlock'});
+  createPostElement('div', document.querySelector('.postBlock'), {class: 'voteBlock'});
+  createPostElement('div', document.querySelector('.postBlock'), {class: 'descriptBlock'});
+  createPostElement('div', document.querySelector('.voteBlock'), {class: 'up Arrow'});
+  createPostElement('p', document.querySelector('.voteBlock'), {class: 'postScore'}, post.score);
+  createPostElement('div', document.querySelector('.voteBlock'), {class: 'down Arrow'});
+  createPostElement('h3', document.querySelector('.descriptBlock'), {class: 'postTitle'}, post.title);
+  createPostElement('p', document.querySelector('.descriptBlock'), {class: 'postTimestamp'}, humanized_time_span(post.timestamp));
+  createPostElement('a', document.querySelector('.descriptBlock'), {class: 'postModifyLink'}, 'Modify');
+  createPostElement('a', document.querySelector('.descriptBlock'), {class: 'postRemoveLink'}, 'Remove');
+*/
